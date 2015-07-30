@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Chinese Translation Project | Teebone Ding Technical Blog]]></title>
-  <link href="http://www.teeboneding.com/blog/categories/chinese-translation-project/atom.xml" rel="self"/>
-  <link href="http://www.teeboneding.com/"/>
-  <updated>2015-07-30T16:39:30+08:00</updated>
-  <id>http://www.teeboneding.com/</id>
+  <link href="http://teeboneting.github.io/blog/categories/chinese-translation-project/atom.xml" rel="self"/>
+  <link href="http://teeboneting.github.io/"/>
+  <updated>2015-07-30T17:14:21+08:00</updated>
+  <id>http://teeboneting.github.io/</id>
   <author>
     <name><![CDATA[Teebone Ding]]></name>
     <email><![CDATA[teebone@teeboneding.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[中文補完計劃]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/11/chinese-translation-project/"/>
     <updated>2013-10-11T12:14:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project</id>
+    <id>http://teeboneting.github.io/blog/2013/10/11/chinese-translation-project</id>
     <content type="html"><![CDATA[<h2>Chinese Translation Project</h2>
 
 <p><a href="http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project/#Eng">English version</a></p>

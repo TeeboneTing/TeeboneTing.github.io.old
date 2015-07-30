@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://www.teeboneding.com/sitemap.xml 
+Sitemap: http://teeboneting.github.io/sitemap.xml 

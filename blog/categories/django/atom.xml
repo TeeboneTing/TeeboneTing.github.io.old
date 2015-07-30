@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Django | Teebone Ding Technical Blog]]></title>
-  <link href="http://www.teeboneding.com/blog/categories/django/atom.xml" rel="self"/>
-  <link href="http://www.teeboneding.com/"/>
-  <updated>2015-07-30T16:39:30+08:00</updated>
-  <id>http://www.teeboneding.com/</id>
+  <link href="http://teeboneting.github.io/blog/categories/django/atom.xml" rel="self"/>
+  <link href="http://teeboneting.github.io/"/>
+  <updated>2015-07-30T17:14:21+08:00</updated>
+  <id>http://teeboneting.github.io/</id>
   <author>
     <name><![CDATA[Teebone Ding]]></name>
     <email><![CDATA[teebone@teeboneding.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ordering in Selecting Objects in Django Model]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/"/>
     <updated>2013-10-11T14:36:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model</id>
+    <id>http://teeboneting.github.io/blog/2013/10/11/ordering-in-selecting-objects-in-django-model</id>
     <content type="html"><![CDATA[<h3>Data ordering</h3>
 
 <p>While retreiving data from Django Model, we might want data that retreived in some ordering. (alphabet, created time, and etc.) Simply use <code>Model.objects.order_by()</code> function.</p>
@@ -84,9 +84,9 @@
   
   <entry>
     <title type="html"><![CDATA[Selecting Objects in Django Model]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/09/selecting-objects-in-django-model/"/>
     <updated>2013-10-09T22:23:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model</id>
+    <id>http://teeboneting.github.io/blog/2013/10/09/selecting-objects-in-django-model</id>
     <content type="html"><![CDATA[<p>When we talk about database, the dumb way to select objects in Django is using raw SQL scripts. We don&rsquo;t use SQL directly in Django due to security issues and cross-platform achievement. Using Django database API can avoid most SQL secure holes and you don&rsquo;t have to learn much about database selecting languages which might be slightly different between several Django supported databases. I am going to talk about a little (my notes) in selecting objects in Django model.</p>
 
 <h3>Filtering Objects</h3>

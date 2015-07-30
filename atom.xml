@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Teebone Ding Technical Blog]]></title>
-  <link href="http://www.teeboneding.com/atom.xml" rel="self"/>
-  <link href="http://www.teeboneding.com/"/>
-  <updated>2015-07-30T16:39:30+08:00</updated>
-  <id>http://www.teeboneding.com/</id>
+  <link href="http://teeboneting.github.io/atom.xml" rel="self"/>
+  <link href="http://teeboneting.github.io/"/>
+  <updated>2015-07-30T17:14:21+08:00</updated>
+  <id>http://teeboneting.github.io/</id>
   <author>
     <name><![CDATA[Teebone Ding]]></name>
     <email><![CDATA[teebone@teeboneding.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[IPython 指令筆記 Written in IPython Notebook]]></title>
-    <link href="http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes/"/>
+    <link href="http://teeboneting.github.io/blog/2015/07/30/ipython-command-notes/"/>
     <updated>2015-07-30T12:02:15+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes</id>
+    <id>http://teeboneting.github.io/blog/2015/07/30/ipython-command-notes</id>
     <content type="html"><![CDATA[<h3><code>tab</code> 可以幫你自動完成函數/變數</h3>
 
 <ul>
@@ -33,7 +33,7 @@
 <ul>
 <li><p>ex: <code>%pdoc os</code> or <code>os?</code></p>
 
-<p>  %pdoc os</p></li>
+<p>  <code>%pdoc os</code></p></li>
 </ul>
 
 
@@ -105,18 +105,19 @@
 <ul>
 <li><p>如果要在IPython呼叫系統指令，只需要在指令面前加入!就好，例如要執行ping指令。</p>
 
-<p>  !ping ptt.cc</p>
+<p>  <code>!ping ptt.cc</code></p>
 
-<p>  Ping ptt.cc [140.112.172.4] (使用 32 位元組的資料):
+<pre><code class="``">  Ping ptt.cc [140.112.172.4] (使用 32 位元組的資料):
   回覆自 140.112.172.4: 位元組=32 時間=4ms TTL=52
   回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
   回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
-  回覆自 140.112.172.4: 位元組=32 時間=8ms TTL=52</p>
+  回覆自 140.112.172.4: 位元組=32 時間=8ms TTL=52
 
-<p>  140.112.172.4 的 Ping 統計資料:
+  140.112.172.4 的 Ping 統計資料:
       封包: 已傳送 = 4，已收到 = 4, 已遺失 = 0 (0% 遺失)，
   大約的來回時間 (毫秒):
-      最小值 = 3ms，最大值 = 8ms，平均 = 4ms</p></li>
+      最小值 = 3ms，最大值 = 8ms，平均 = 4ms
+</code></pre></li>
 </ul>
 
 
@@ -136,31 +137,34 @@
 
 <p>記得加入最後一行 <code>%matplotlib inline</code> 才會讓圖片show在notebook裡面</p>
 
-<pre><code>import matplotlib
-import numpy as np
-import matplotlib.pyplot as plt
-%matplotlib inline
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import matplotlib
+</span><span class='line'>import numpy as np
+</span><span class='line'>import matplotlib.pyplot as plt
+</span><span class='line'>%matplotlib inline
+</span><span class='line'>
+</span><span class='line'>plt.plot([1,5,2,4])</span></code></pre></td></tr></table></div></figure>
 
-plt.plot([1,5,2,4])
 
-
-
-
-[&lt;matplotlib.lines.Line2D at 0x55b0e90&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x55b0e90&gt;]
 </code></pre>
 
-<p><img src="http://www.teeboneding.com/images/0730/output_11_1.png"></p>
+<p><img src="http://teeboneting.github.io/images/0730/output_11_1.png"></p>
 
 <h3>插入YouTube影片</h3>
 
-<pre><code>from IPython.lib.display import YouTubeVideo
-YouTubeVideo('PjJhg9-EXr8')
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from IPython.lib.display import YouTubeVideo
+</span><span class='line'>YouTubeVideo('PjJhg9-EXr8')</span></code></pre></td></tr></table></div></figure>
 
 
-
-
-
-    &lt;iframe
+<pre><code>    &lt;iframe
         width="400"
         height="300"
         src="https://www.youtube.com/embed/PjJhg9-EXr8"
@@ -171,9 +175,13 @@ YouTubeVideo('PjJhg9-EXr8')
 
 <h3>嵌入外部網站</h3>
 
-<pre><code>from IPython.core.display import HTML
-HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from IPython.core.display import HTML
+</span><span class='line'>HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')</span></code></pre></td></tr></table></div></figure>
+
+
+
 
 <p><iframe src="http://www.teeboneding.com" width=800 height=400></p>
 
@@ -188,9 +196,9 @@ HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
   
   <entry>
     <title type="html"><![CDATA[Generate a YouTube-Video-ID-like Hash Function in Python]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/"/>
     <updated>2013-10-16T12:02:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python</id>
+    <id>http://teeboneting.github.io/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python</id>
     <content type="html"><![CDATA[<p>A youtube video URL is like <code>https://www.youtube.com/watch?v=Qx-ezesM3nA</code>. The video ID consists of 11 characters with ASCII uppercase and lowercase alphabets, digits ,and some other characters. In some cases we would like to generate a hash function that outputs a Youtube-video-ID-like hash value. For example: A <strong>URL shortener</strong> that generate a shorter URL from the original long URL. Here is my implementation:</p>
 
 <!-- more -->
@@ -320,9 +328,9 @@ HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
   
   <entry>
     <title type="html"><![CDATA[Ordering in Selecting Objects in Django Model]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/"/>
     <updated>2013-10-11T14:36:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model</id>
+    <id>http://teeboneting.github.io/blog/2013/10/11/ordering-in-selecting-objects-in-django-model</id>
     <content type="html"><![CDATA[<h3>Data ordering</h3>
 
 <p>While retreiving data from Django Model, we might want data that retreived in some ordering. (alphabet, created time, and etc.) Simply use <code>Model.objects.order_by()</code> function.</p>
@@ -419,9 +427,9 @@ HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
   
   <entry>
     <title type="html"><![CDATA[中文補完計劃]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/11/chinese-translation-project/"/>
     <updated>2013-10-11T12:14:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project</id>
+    <id>http://teeboneting.github.io/blog/2013/10/11/chinese-translation-project</id>
     <content type="html"><![CDATA[<h2>Chinese Translation Project</h2>
 
 <p><a href="http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project/#Eng">English version</a></p>
@@ -445,9 +453,9 @@ This blog records my notes and useful information on my way learning coding. To 
   
   <entry>
     <title type="html"><![CDATA[Selecting Objects in Django Model]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/09/selecting-objects-in-django-model/"/>
     <updated>2013-10-09T22:23:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model</id>
+    <id>http://teeboneting.github.io/blog/2013/10/09/selecting-objects-in-django-model</id>
     <content type="html"><![CDATA[<p>When we talk about database, the dumb way to select objects in Django is using raw SQL scripts. We don&rsquo;t use SQL directly in Django due to security issues and cross-platform achievement. Using Django database API can avoid most SQL secure holes and you don&rsquo;t have to learn much about database selecting languages which might be slightly different between several Django supported databases. I am going to talk about a little (my notes) in selecting objects in Django model.</p>
 
 <h3>Filtering Objects</h3>
@@ -529,9 +537,9 @@ This blog records my notes and useful information on my way learning coding. To 
   
   <entry>
     <title type="html"><![CDATA[Fetch URL Query String With a jQuery Plugin]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin/"/>
     <updated>2013-10-09T17:55:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin</id>
+    <id>http://teeboneting.github.io/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin</id>
     <content type="html"><![CDATA[<h3>Useful plugin for fetching URL parameters</h3>
 
 <p>Download the plugin <a href="https://code.google.com/p/gantry/source/browse/trunk/root/js/jquery.url.min.js?r=1485">here</a>:</p>
@@ -649,9 +657,9 @@ This blog records my notes and useful information on my way learning coding. To 
   
   <entry>
     <title type="html"><![CDATA[在Mac系統上撰寫台大碩士論文(XeLaTex樣板) Write Your NTU Master Thesis With a XeLaTex Template on Mac]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/"/>
+    <link href="http://teeboneting.github.io/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/"/>
     <updated>2013-06-01T17:52:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac</id>
+    <id>http://teeboneting.github.io/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac</id>
     <content type="html"><![CDATA[<p><a name="top"></a></p>
 
 <h2>簡介 Introduction</h2>
@@ -696,7 +704,7 @@ MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著�
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span><span class="nn">os</span><span class="p">;</span> <span class="n">pf</span><span class="o">=</span><span class="s">&#39;Package Control.sublime-package&#39;</span><span class="p">;</span> <span class="n">ipp</span><span class="o">=</span><span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ipp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ipp</span><span class="p">)</span> <span class="k">else</span> <span class="bp">None</span><span class="p">;</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">()));</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ipp</span><span class="p">,</span><span class="n">pf</span><span class="p">),</span><span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;<a href="http://sublime.wbond.net/&amp;#39;">http://sublime.wbond.net/&amp;#39;</a></span><span class="o">+</span><span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span><span class="s">&#39;%20&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">());</span> <span class="k">print</span><span class="p">(</span><span class="s">&#39;Please restart Sublime Text to finish installation&#39;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p><img src="http://www.teeboneding.com/images/0601/0601-1.png">
+<p><img src="http://teeboneting.github.io/images/0601/0601-1.png">
 (在圖中最底部的對話框輸入上面的code，按下enter就開始安裝pakage control了。)</p>
 
 <p><p>執行完以後重開Sublime 2就安裝完Package Control了。</p>
@@ -704,12 +712,12 @@ MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著�
 安裝完Package Control 以後，在Sublime Text 2底下按 <code>cmd + shift + p</code> 會開啓一個輸入框，這個框框可以搜尋各種sublime text 2功能，非常好用的快捷鍵。我們在這裡輸入 LaTexTools 應該就可以找到我們要安裝的plugin，按下enter就開始安裝了。
 </p></p>
 
-<p><img src="http://www.teeboneding.com/images/0601/0601-2.png">
+<p><img src="http://teeboneting.github.io/images/0601/0601-2.png">
 (Search anything in this dialog box!)<br></p>
 
 <p>接下來為了要在Sublime Text 2底下編譯XeLaTex要另外做一項設定<a href="#8">[8]</a>，請在視窗工具列按下 Tools -> Build System -> New Build System …</p>
 
-<p><img src="http://www.teeboneding.com/images/0601/0601-3.png">
+<p><img src="http://teeboneting.github.io/images/0601/0601-3.png">
 接著會開啓一個新的文件，先清掉預設的內容，將下面的程式碼貼上：</p>
 
 <p><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1019,9 +1027,9 @@ MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著�
   
   <entry>
     <title type="html"><![CDATA[A Survey of Job Completion Time Prediction Methodologies]]></title>
-    <link href="http://www.teeboneding.com/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies/"/>
+    <link href="http://teeboneting.github.io/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies/"/>
     <updated>2012-11-16T22:14:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies</id>
+    <id>http://teeboneting.github.io/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies</id>
     <content type="html"><![CDATA[<h2> Introduction </h2>
 
 
@@ -1047,9 +1055,9 @@ MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著�
 <p>Jockey [2] is a scheduler that provides latency SLOs for data parallel jobs written in SCOPE [5]. As Jockey is implemented on Microsoft Cosmos clusters, jobs are running in production mode which means these must be recurring jobs. Jockey can predict the new coming recurring production job completion time by history logs. The architecture is shown below: (Fig. 2 from [2])</p>
 
 
-<p><img src="http://www.teeboneding.com/images/1116/1116-1.png"></p>
+<p><img src="http://teeboneting.github.io/images/1116/1116-1.png"></p>
 
-<p><img src="http://www.teeboneding.com/images/1116/1116-2.png"></p>
+<p><img src="http://teeboneting.github.io/images/1116/1116-2.png"></p>
 
 <p>      The offline phase includes job profiler and simulator. What information can we learn from history? The jobs running on Cosmos have structures like Dryad [4] that have several processing stages have dependency or parallel part. (See Fig. 3 in [2].) One could visualize a job's structure (execution plan) in a partial order diagram from the compiler and optimizer of SCOPE. In history logs we can obtain per-stage runtime information, job initialization latencies, task failure probabilities, stage and task dependency list for each job, job completion times, and etc.</p>
 
@@ -1069,7 +1077,7 @@ MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著�
 <h3> SVM regression model (AROMA) </h3>
 
 
-<p><img src="http://www.teeboneding.com/images/1116/1116-3.png"></p>
+<p><img src="http://teeboneting.github.io/images/1116/1116-3.png"></p>
 
 <p>AROMA [1] provides a machine learning performance model to predict job completion time. The challenge in this paper is to allocate sufficient resources and minimize costs in the heterogeneous Cloud Hadoop environment. For the offline model training, the authors apply support vector machine (SVM) regression model to estimate the MapReduce job completion time. Table 2 in [1] describes feature selection for SORT job. The t-static and p-value are determined by a stepwise regression technique. The model features include Hadoop configurations, input data size, VM types, and number of VMs (which represent amount of resources.) The output of this machine learning model is job completion time estimation.</p>
 
@@ -1079,7 +1087,7 @@ MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著�
 <p>      Before applying SVM regression, jobs are clustered into several clusters by k-medoid algorithm. The clustering features include CPU, network, and disk usage. The SVM regression models are constructed for each different cluster. For a new coming job, AROMA will simulate the job with a small VM and a fraction of its input data to capture the CPU, network, and disk usage and find a suitable SVM regression model to estimate the job completion time. With an assumption: jobs with similar bottlenecks and as a result they would be similar performance behavior,AROMA can predict ad-hoc job completion time by online simulation signature matching to a SVM model.</p>
 
 
-<p><img src="http://www.teeboneding.com/images/1116/1116-4.png"></p>
+<p><img src="http://teeboneting.github.io/images/1116/1116-4.png"></p>
 
 <h3>Analytical functions (ARIA and Jockey's modified Amdahl's Law)</h3>
 
@@ -1087,12 +1095,12 @@ MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著�
 <p>In ARIA [3] and Jockey [1] there are analytical ways to predict job completion time. ARIA [3] solves the same problem as AROMA [1] that predict MapReduce job completion time and allocate sufficient resources to meet SLOs on latency. The difference is that ARIA focus on production (recurring) jobs running on self hosted Hadoop clusters. The authors in [3] induce a function of assigned resources to predict job completion time. The architecture of ARIA is described in Fig. 6 in [3]. It is implemented as a Hadoop scheduler.</p>
 
 
-<p><img src="http://www.teeboneding.com/images/1116/1116-5.png"></p>
+<p><img src="http://teeboneting.github.io/images/1116/1116-5.png"></p>
 
 <p>      ARIA can learn from job profile that extract information from the jab master logs. Information including map/reduce task durations, average input size per task, and the ratio of the map/reduce task output to input size. Based on the job profile and the performance bounds of completion time of different job phases, the authors design a MapReduce performance model. The detail of the mathematical induction is quite lengthy, I left this part for saving space. The completion time estimation equation looks like this:</p>
 
 
-<p><img src="http://www.teeboneding.com/images/1116/1116-6.png"></p>
+<p><img src="http://teeboneting.github.io/images/1116/1116-6.png"></p>
 
 <p>      A,B, and C are constants can be obtained from a job's profile. N(J,M) and N(J,R) are Map/Reduce total tasks amount for job J which are also constants can be obtained before execution. T stands for execution time that is what we want to get. S(J,M) and S(J,R) are two variables for this function which are Map and Reduce slots (resources) that the system can provide for job J. We then could simplify equation 10 to 11 and solve it by Lagrange's multipliers to get the smallest map/reduce slots for one job to finish before its deadline.</p>
 

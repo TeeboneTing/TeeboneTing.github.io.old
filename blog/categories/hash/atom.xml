@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Hash | Teebone Ding Technical Blog]]></title>
-  <link href="http://www.teeboneding.com/blog/categories/hash/atom.xml" rel="self"/>
-  <link href="http://www.teeboneding.com/"/>
-  <updated>2015-07-30T16:39:30+08:00</updated>
-  <id>http://www.teeboneding.com/</id>
+  <link href="http://teeboneting.github.io/blog/categories/hash/atom.xml" rel="self"/>
+  <link href="http://teeboneting.github.io/"/>
+  <updated>2015-07-30T17:14:21+08:00</updated>
+  <id>http://teeboneting.github.io/</id>
   <author>
     <name><![CDATA[Teebone Ding]]></name>
     <email><![CDATA[teebone@teeboneding.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Generate a YouTube-Video-ID-like Hash Function in Python]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/"/>
     <updated>2013-10-16T12:02:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python</id>
+    <id>http://teeboneting.github.io/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python</id>
     <content type="html"><![CDATA[<p>A youtube video URL is like <code>https://www.youtube.com/watch?v=Qx-ezesM3nA</code>. The video ID consists of 11 characters with ASCII uppercase and lowercase alphabets, digits ,and some other characters. In some cases we would like to generate a hash function that outputs a Youtube-video-ID-like hash value. For example: A <strong>URL shortener</strong> that generate a shorter URL from the original long URL. Here is my implementation:</p>
 
 <!-- more -->

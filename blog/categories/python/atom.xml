@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Python | Teebone Ding Technical Blog]]></title>
-  <link href="http://www.teeboneding.com/blog/categories/python/atom.xml" rel="self"/>
-  <link href="http://www.teeboneding.com/"/>
-  <updated>2015-07-30T16:39:30+08:00</updated>
-  <id>http://www.teeboneding.com/</id>
+  <link href="http://teeboneting.github.io/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://teeboneting.github.io/"/>
+  <updated>2015-07-30T17:14:21+08:00</updated>
+  <id>http://teeboneting.github.io/</id>
   <author>
     <name><![CDATA[Teebone Ding]]></name>
     <email><![CDATA[teebone@teeboneding.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[IPython 指令筆記 Written in IPython Notebook]]></title>
-    <link href="http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes/"/>
+    <link href="http://teeboneting.github.io/blog/2015/07/30/ipython-command-notes/"/>
     <updated>2015-07-30T12:02:15+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes</id>
+    <id>http://teeboneting.github.io/blog/2015/07/30/ipython-command-notes</id>
     <content type="html"><![CDATA[<h3><code>tab</code> 可以幫你自動完成函數/變數</h3>
 
 <ul>
@@ -33,7 +33,7 @@
 <ul>
 <li><p>ex: <code>%pdoc os</code> or <code>os?</code></p>
 
-<p>  %pdoc os</p></li>
+<p>  <code>%pdoc os</code></p></li>
 </ul>
 
 
@@ -83,18 +83,19 @@
 <ul>
 <li><p>如果要在IPython呼叫系統指令，只需要在指令面前加入!就好，例如要執行ping指令。</p>
 
-<p>  !ping ptt.cc</p>
+<p>  <code>!ping ptt.cc</code></p>
 
-<p>  Ping ptt.cc [140.112.172.4] (使用 32 位元組的資料):
+<pre><code class="``">  Ping ptt.cc [140.112.172.4] (使用 32 位元組的資料):
   回覆自 140.112.172.4: 位元組=32 時間=4ms TTL=52
   回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
   回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
-  回覆自 140.112.172.4: 位元組=32 時間=8ms TTL=52</p>
+  回覆自 140.112.172.4: 位元組=32 時間=8ms TTL=52
 
-<p>  140.112.172.4 的 Ping 統計資料:
+  140.112.172.4 的 Ping 統計資料:
       封包: 已傳送 = 4，已收到 = 4, 已遺失 = 0 (0% 遺失)，
   大約的來回時間 (毫秒):
-      最小值 = 3ms，最大值 = 8ms，平均 = 4ms</p></li>
+      最小值 = 3ms，最大值 = 8ms，平均 = 4ms
+</code></pre></li>
 </ul>
 
 
@@ -110,31 +111,26 @@ import matplotlib.pyplot as plt
 
 <p>記得加入最後一行 <code>%matplotlib inline</code> 才會讓圖片show在notebook裡面</p>
 
-<pre><code>import matplotlib
-import numpy as np
-import matplotlib.pyplot as plt
-%matplotlib inline
+<pre><code>    import matplotlib
+    import numpy as np
+    import matplotlib.pyplot as plt
+    %matplotlib inline
 
-plt.plot([1,5,2,4])
+    plt.plot([1,5,2,4])
+</code></pre>
 
-
-
-
-[&lt;matplotlib.lines.Line2D at 0x55b0e90&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x55b0e90&gt;]
 </code></pre>
 
 <p><img src="/images/0730/output_11_1.png"></p>
 
 <h3>插入YouTube影片</h3>
 
-<pre><code>from IPython.lib.display import YouTubeVideo
-YouTubeVideo('PjJhg9-EXr8')
+<pre><code>    from IPython.lib.display import YouTubeVideo
+    YouTubeVideo('PjJhg9-EXr8')
+</code></pre>
 
-
-
-
-
-    &lt;iframe
+<pre><code>    &lt;iframe
         width="400"
         height="300"
         src="https://www.youtube.com/embed/PjJhg9-EXr8"
@@ -145,8 +141,8 @@ YouTubeVideo('PjJhg9-EXr8')
 
 <h3>嵌入外部網站</h3>
 
-<pre><code>from IPython.core.display import HTML
-HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
+<pre><code>    from IPython.core.display import HTML
+    HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
 </code></pre>
 
 <p><iframe src="http://www.teeboneding.com" width=800 height=400></p>
@@ -162,9 +158,9 @@ HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
   
   <entry>
     <title type="html"><![CDATA[Generate a YouTube-Video-ID-like Hash Function in Python]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/"/>
     <updated>2013-10-16T12:02:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python</id>
+    <id>http://teeboneting.github.io/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python</id>
     <content type="html"><![CDATA[<p>A youtube video URL is like <code>https://www.youtube.com/watch?v=Qx-ezesM3nA</code>. The video ID consists of 11 characters with ASCII uppercase and lowercase alphabets, digits ,and some other characters. In some cases we would like to generate a hash function that outputs a Youtube-video-ID-like hash value. For example: A <strong>URL shortener</strong> that generate a shorter URL from the original long URL. Here is my implementation:</p>
 
 <!-- more -->
@@ -244,9 +240,9 @@ def genHash(seed):
   
   <entry>
     <title type="html"><![CDATA[Ordering in Selecting Objects in Django Model]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/"/>
     <updated>2013-10-11T14:36:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model</id>
+    <id>http://teeboneting.github.io/blog/2013/10/11/ordering-in-selecting-objects-in-django-model</id>
     <content type="html"><![CDATA[<h3>Data ordering</h3>
 
 <p>While retreiving data from Django Model, we might want data that retreived in some ordering. (alphabet, created time, and etc.) Simply use <code>Model.objects.order_by()</code> function.</p>
@@ -313,9 +309,9 @@ def genHash(seed):
   
   <entry>
     <title type="html"><![CDATA[Selecting Objects in Django Model]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/09/selecting-objects-in-django-model/"/>
     <updated>2013-10-09T22:23:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model</id>
+    <id>http://teeboneting.github.io/blog/2013/10/09/selecting-objects-in-django-model</id>
     <content type="html"><![CDATA[<p>When we talk about database, the dumb way to select objects in Django is using raw SQL scripts. We don&rsquo;t use SQL directly in Django due to security issues and cross-platform achievement. Using Django database API can avoid most SQL secure holes and you don&rsquo;t have to learn much about database selecting languages which might be slightly different between several Django supported databases. I am going to talk about a little (my notes) in selecting objects in Django model.</p>
 
 <h3>Filtering Objects</h3>

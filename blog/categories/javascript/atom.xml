@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Javascript | Teebone Ding Technical Blog]]></title>
-  <link href="http://www.teeboneding.com/blog/categories/javascript/atom.xml" rel="self"/>
-  <link href="http://www.teeboneding.com/"/>
-  <updated>2015-07-30T16:39:30+08:00</updated>
-  <id>http://www.teeboneding.com/</id>
+  <link href="http://teeboneting.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://teeboneting.github.io/"/>
+  <updated>2015-07-30T17:14:21+08:00</updated>
+  <id>http://teeboneting.github.io/</id>
   <author>
     <name><![CDATA[Teebone Ding]]></name>
     <email><![CDATA[teebone@teeboneding.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fetch URL Query String With a jQuery Plugin]]></title>
-    <link href="http://www.teeboneding.com/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin/"/>
+    <link href="http://teeboneting.github.io/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin/"/>
     <updated>2013-10-09T17:55:00+08:00</updated>
-    <id>http://www.teeboneding.com/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin</id>
+    <id>http://teeboneting.github.io/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin</id>
     <content type="html"><![CDATA[<h3>Useful plugin for fetching URL parameters</h3>
 
 <p>Download the plugin <a href="https://code.google.com/p/gantry/source/browse/trunk/root/js/jquery.url.min.js?r=1485">here</a>:</p>
