@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Hash | Teebone Ding Technical Blog]]></title>
+  <link href="http://www.teeboneding.com/blog/categories/hash/atom.xml" rel="self"/>
+  <link href="http://www.teeboneding.com/"/>
+  <updated>2015-07-30T16:39:30+08:00</updated>
+  <id>http://www.teeboneding.com/</id>
+  <author>
+    <name><![CDATA[Teebone Ding]]></name>
+    <email><![CDATA[teebone@teeboneding.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Generate a YouTube-Video-ID-like Hash Function in Python]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/"/>
+    <updated>2013-10-16T12:02:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python</id>
+    <content type="html"><![CDATA[<p>A youtube video URL is like <code>https://www.youtube.com/watch?v=Qx-ezesM3nA</code>. The video ID consists of 11 characters with ASCII uppercase and lowercase alphabets, digits ,and some other characters. In some cases we would like to generate a hash function that outputs a Youtube-video-ID-like hash value. For example: A <strong>URL shortener</strong> that generate a shorter URL from the original long URL. Here is my implementation:</p>
+
+<!-- more -->
+
+
+<pre><code class="python util.py">import string, random
+def genHash(seed):
+    base = string.ascii_letters+string.digits # Output hash base: all alphabets and digits
+    random.seed(seed) # Input string as the random seed
+    hash_value = ""
+    for i in range(10):
+        # Generate a 10-character hash by randomly select characters from base
+        hash_value += random.choice(base)
+    return hash_value
+</code></pre>
+
+<p>The <code>random.seed()</code> function will determine the output random number sequence. Same seed will output same hash value (random number sequence) that is a 1-to-1 mapping between seed (input) and hash value (output).</p>
+
+<p>Example output:</p>
+
+<pre><code class="python">&gt;&gt;&gt; genHash("DoReMi")
+'pd7yPqNmDB'
+&gt;&gt;&gt; genHash("DoReMiFa")
+'ZiM4CNISMF'
+</code></pre>
+
+<p>One could change the base string to generate different kind of hash that is based on python random module.</p>
+
+<p>If you have any great idea of generating a Youtube-video-ID-like hash, please discuss with me below!</p>
+
+<p style="color:red;font-weight:bold;">10/16 Update</p>
+
+
+<p>Actually <code>random.seed()</code> is implemented by calling a hash function to generate random numbers. Here is the snippet of <code>random.seed()</code> from <a href="http://svn.python.org/projects/python/branches/py3k/Lib/random.py">random.py</a>:</p>
+
+<pre><code class="python random.py">class Random(_random.Random):
+    VERSION = 3     # used by getstate/setstate
+
+    def seed(self, a=None, version=2):
+        """Initialize internal state from hashable object.
+
+        None or no argument seeds from current time or from an operating
+        system specific randomness source if available.
+
+        For version 2 (the default), all of the bits are used if *a *is a str,
+        bytes, or bytearray.  For version 1, the hash() of *a* is used instead.
+
+        If *a* is an int, all bits are used.
+
+        """
+
+        if a is None:
+            try:
+                a = int.from_bytes(_urandom(32), 'big')
+            except NotImplementedError:
+                import time
+                a = int(time.time() * 256) # use fractional seconds
+
+        if version == 2:
+            if isinstance(a, (str, bytes, bytearray)):
+                if isinstance(a, str):
+                    a = a.encode("utf-8")
+                a += _sha512(a).digest()
+                a = int.from_bytes(a, 'big')
+
+        super().seed(a)
+        self.gauss_next = None
+</code></pre>
+
+<p>The seed is generated from SHA512 hash function. The random number sequence will be the same as the seed is the same.</p>
+
+<h3>Reference:</h3>
+
+<p><a href="http://svn.python.org/projects/python/branches/py3k/Lib/random.py">Python Random module implementation</a></p>
+]]></content>
+  </entry>
+  
+</feed>

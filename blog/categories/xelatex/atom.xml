@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Xelatex | Teebone Ding Technical Blog]]></title>
+  <link href="http://www.teeboneding.com/blog/categories/xelatex/atom.xml" rel="self"/>
+  <link href="http://www.teeboneding.com/"/>
+  <updated>2015-07-30T16:39:30+08:00</updated>
+  <id>http://www.teeboneding.com/</id>
+  <author>
+    <name><![CDATA[Teebone Ding]]></name>
+    <email><![CDATA[teebone@teeboneding.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[在Mac系統上撰寫台大碩士論文(XeLaTex樣板) Write Your NTU Master Thesis With a XeLaTex Template on Mac]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/"/>
+    <updated>2013-06-01T17:52:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac</id>
+    <content type="html"><![CDATA[<p><a name="top"></a></p>
+
+<h2>簡介 Introduction</h2>
+
+
+<p>
+這篇教學文是針對黃子桓 <a href="#1">[1]</a> <a href="#2">[2]</a> 在Mac寫作台大碩士論文的教學補充文，我使用的樣板為XeLaTex的版本，在處理中文的時候比LaTex+CJK方便很多，強烈推薦使用。另外編輯器我採用個人最喜歡的Sublime Text 2 <a href="#7">[7]</a> 作為編寫工具，其作為其它程式碼編輯器也相當實用，推薦！
+</p>
+
+
+<p>
+I assume that the reader of this post wants to write a master thesis in National Taiwan University that is a Chinese native speaker. I wrote this teaching article in Chinese. If you are a reader that is interested in writing LaTex/XeLaTex with Sublime Text 2 on Mac, I suggest you to read reference <a href="#4">[4]</a>, <a href="#5">[5]</a>, <a href="#6">[6]</a>, and <a href="8">[8]</a>. If you are a student in NTU but not a Chinese speaker, email me to <code> teebone [at] teeboneding dot com</code> and I will try to translate this post in English if I have plenty of time after I finish my master thesis this year, good luck!
+</p>
+
+
+<!-- more -->
+
+
+
+
+<h2>準備工具：</h2>
+
+
+<p><ol>
+  <li> Mac 系統 (以下都是以Mac系統作教學，其它系統不見得適用。)
+  <li> MacTex <a href="#3">[3]</a> <a href="下載連結"><a href="http://tug.org/mactex/">http://tug.org/mactex/</a></a>
+  <li> Sublime text 2 <a href="#7">[7]</a> <a href="下載連結"><a href="http://www.sublimetext.com/2">http://www.sublimetext.com/2</a></a>
+  <li> LaTeXTools Plugin for Sublime Text 2 <a href="#6">[6]</a> <a href="GitHub連結"><a href="https://github.com/SublimeText/LaTeXTools">https://github.com/SublimeText/LaTeXTools</a></a>
+  <li> Skim pdf viewer <a href="#10">[10]</a> <a href="下載連結"><a href="http://skim-app.sourceforge.net/">http://skim-app.sourceforge.net/</a></a>
+  <li> 臺灣大學碩博士論文 XeLaTeX 模版 <a href="#2">[2]</a> <a href="GitHub連結"><a href="https://github.com/tzhuan/ntu-thesis/wiki">https://github.com/tzhuan/ntu-thesis/wiki</a></a>
+</uol></p>
+
+<p><h2>軟體安裝：</h2>
+<p>
+MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著就照安裝檔一路按下去就安裝完了。下載與安裝等待的時間很長，這時候可以去下載安裝Sublime Text 2 、Skim以及 LaTexTools pulgin。 LaTexTools pulgin建議搭配教學影片 <a href="#5">[5]</a> 安裝，在安裝完Sublime Text 2後，puglin安裝方式如下：
+</p>
+<p>
+在 <a href="#6">[6]</a> 的GitHub repository中往下拉找到Requirement and Setup那段，安裝pulgin之前要先安裝Sublime Package Control <a href="#9">[9]</a> ，打開Sublime Text 2 後按下快捷鍵 <code>ctrl + `</code> 跳出指令列，輸入以下code:
+</p></p>
+
+<pre><code class="python Install Package Control http://wbond.net/sublime_packages/package_control/installation Source Link">import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')
+</code></pre>
+
+<p><img src="/images/0601/0601-1.png">
+(在圖中最底部的對話框輸入上面的code，按下enter就開始安裝pakage control了。)</p>
+
+<p><p>執行完以後重開Sublime 2就安裝完Package Control了。</p>
+<p>
+安裝完Package Control 以後，在Sublime Text 2底下按 <code>cmd + shift + p</code> 會開啓一個輸入框，這個框框可以搜尋各種sublime text 2功能，非常好用的快捷鍵。我們在這裡輸入 LaTexTools 應該就可以找到我們要安裝的plugin，按下enter就開始安裝了。
+</p></p>
+
+<p><img src="/images/0601/0601-2.png">
+(Search anything in this dialog box!)<br></p>
+
+<p>接下來為了要在Sublime Text 2底下編譯XeLaTex要另外做一項設定<a href="#8">[8]</a>，請在視窗工具列按下 Tools -> Build System -> New Build System …</p>
+
+<p><img src="/images/0601/0601-3.png">
+接著會開啓一個新的文件，先清掉預設的內容，將下面的程式碼貼上：</p>
+
+<pre><code class="javascript ">// Compilation settings
+// ====================
+//
+// The actual magic happens in the make_pdf command
+// I stick to the format of standard ST2 sublime-build files
+// with minor variations.
+// NOTE: the viewer is NOT configured from here!
+// As of 5/24/11, it cannot be changed, but I will introduce a setting later
+
+{
+
+     // General settings; DO NOT MODIFY!!!
+     "target": "make_pdf",
+     "selector": "text.tex.latex",
+
+     // Mac-specific settings
+     // ---------------------
+
+     "osx":
+          {
+          // Mac texification settings
+          // -------------------------
+          // Personalize this, IF you know what you are doing!
+          // e.g. change 'pdflatex...' to 'xelatex...'
+          // Refer to the documentation for latexmk
+          //
+          // Note: do NOT include $file or similar!!!
+          // Only configure the compilation parameters you need, MINUS the
+          // actual file to be compiled
+          //
+          // By default, latexmk is told to use pdflatex, with synctex on for
+          // backward/forward search, forcing compilation (e.g. even if no bib file is found)
+          // and producing pdf rather than dvi output
+          // "cmd": ["latexmk", "-cd",
+          //           "-e", "\\$pdflatex = 'pdflatex %O -interaction=nonstopmode -synctex=1 %S'",
+          //           //"-silent",
+          //           "-f", "-pdf"],
+          "cmd": ["xelatex"],
+
+          // Paths to TeX binaries; needed as GUI apps do not inherit
+          // the profile. MUST EXPLICITLY PRE/APPEND $PATH!
+          // This is preconfigured for MacTeX (2009 and up I guess)
+          "path": "$PATH:/usr/texbin:/usr/local/bin",
+
+          // DO NOT MESS WITH THE FOLLOWING!!!
+          "file_regex": "^(...*?):([0-9]+): ([0-9]*)([^\\.]+)"
+          },
+
+     // Windows-specific settings
+     // -------------------------
+     "windows":
+          {
+               // Texification command
+               // -----------------------------
+               // See above comments on Mac parameters
+               // Refer to the documentation for texify
+               //
+               // Again, do NOT include $file or similar!!!
+               //
+
+               // Uncomment ONLY ONE of the "cmd"s given here,
+               // depending on your tex distro (miktex or texlive)
+
+               // MikTeX 2009 configuration              
+               // You can also set the MikTeX binaries path here, if you have them
+               // in a non-standard location that is NOT on your %PATH%
+               // Useful also if you have both MikTeX and TeXlive installed, and want
+               // to use MikTeX.
+               // If you don't need this, leave it blank, i.e. ""
+               // ADD $PATH EXPLICITLY AT THE END
+
+               // *** BEGIN MikTeX 2009 ***
+               // "cmd": ["texify",
+               //           "-b", "-p",
+               //           "--tex-option=\"--synctex=1\""
+               // ],
+               "cmd": ["xelatex"],
+               "path": "",
+               // *** END MikTeX 2009 ***
+
+               // TeXlive 2011 configuration
+               // You can als set the TeXlive binaries path here, if you have them
+               // in a non-standard location that is NOT on your %PATH%
+               // Useful also if you have both MikTeX and TeXlive installed, and want
+               // to use TeXlive.
+               // If you don't need this, leave it blank, i.e. ""
+               // ADD $PATH EXPLICITLY AT THE END
+
+               // *** BEGIN TeXLive 2011 ***
+               // "cmd": ["latexmk", "-cd",
+               //      "-e", "\\$pdflatex = 'pdflatex %O -interaction=nonstopmode -synctex=1 %S'",
+               //     //"-silent",
+               //      "-f", "-pdf"],
+
+               // "path": "C:\\texlive\\2011\\bin\\win32;$PATH",
+               // *** END TeXLive 2011 ***
+
+
+               // END OF USER-CONFIGURABLE STUFF!!!
+
+               // DO NOT MESS WITH THE FOLLOWING!!!
+               "file_regex": "^((?:.:)?[^:\n\r]*):([0-9]+):?([0-9]+)?:? (.*)$"
+          },
+
+     "linux":
+          {
+          // Linux texification settings
+          // -------------------------
+          // Personalize this, IF you know what you are doing!
+          // e.g. change 'pdflatex...' to 'xelatex...'
+          // Refer to the documentation for latexmk
+          //
+          // Note: do NOT include $file or similar!!!
+          // Only configure the compilation parameters you need, MINUS the
+          // actual file to be compiled
+          //
+          // By default, latexmk is told to use pdflatex, with synctex on for
+          // backward/forward search, forcing compilation (e.g. even if no bib file is found)
+          // and producing pdf rather than dvi output
+
+          // "cmd": ["latexmk", "-cd",
+          //           "-e", "\\$pdflatex = 'pdflatex %O -interaction=nonstopmode -synctex=1 %S'",
+          //           "-f", "-pdf"],
+
+          "cmd": ["xelatex"],
+
+          // Paths to TeX binaries; needed as GUI apps do not inherit
+          // the profile. MUST EXPLICITLY PRE/APPEND $PATH!
+          // This is preconfigured for MacTeX (2009 and up I guess)
+          "path": "$PATH:/usr/texbin",
+
+          // DO NOT MESS WITH THE FOLLOWING!!!
+          "file_regex": "^(...*?):([0-9]+): ([0-9]*)([^\\.]+)"
+          }
+}
+</code></pre>
+
+<p><p>
+然後存檔，按 <code> cmd + s </code> ，可以更改檔名成 XeLaTex.sublime-build 存檔後你的Build System就多了一個XeLaTex的選項啦，記得把Build System改成你新增的XeLaTex才能順利編譯XeLaTex樣板。 如果你走到這裡還沒有關掉我的教學文，恭喜你已經設定好編輯環境了，別忘了MacTex要裝好！
+</p>
+<p>
+接著去下載黃子桓的XeLaTex台大碩士論文樣板 <a href="#2">[2]</a>，打開thesis.tex並且拉到第16行左右的地方把
+</p>
+<code>
+\setCJKmainfont{標楷體}
+</code>
+改成
+<code>
+\setCJKmainfont{BiauKai}  
+</code>
+<p>
+則中文顯示的字型問題在Mac上就解決了，不需要再去下載中文字型，其它cwTex之類的都太搞剛。記得把Sublime Text 2 語系調成UTF-8，接著按下 <code>cmd + B</code> 就可以編譯樣板了，正確無誤的話就會看到樣板順利生成pdf啦，Sublime 2 會打開Skim預覽PDF生成檔，接著你就可以照著黃子桓[2]的Github wiki說明撰寫你的論文了，祝你一切順利，早日畢業！
+</p></p>
+
+<p><h2>參考連結 References: </h2></p>
+
+<p><a name="1">[1]</a> 如何用 LaTeX 排版臺灣大學碩士論文？ <a href="http://www.csie.ntu.edu.tw/~tzhuan/www/resources/ntu/"><a href="http://www.csie.ntu.edu.tw/~tzhuan/www/resources/ntu/">http://www.csie.ntu.edu.tw/~tzhuan/www/resources/ntu/</a></a> <br>
+<a name="2">[2]</a> 臺灣大學碩博士論文 XeLaTeX 模版 <a href="https://github.com/tzhuan/ntu-thesis/wiki"><a href="https://github.com/tzhuan/ntu-thesis/wiki">https://github.com/tzhuan/ntu-thesis/wiki</a></a> <br>
+<a name="3">[3]</a> MacTex <a href="http://tug.org/mactex/"><a href="http://tug.org/mactex/">http://tug.org/mactex/</a></a> <br>
+<a name="4">[4]</a> Working with LaTeX in Sublime Text 2 <a href="http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2"><a href="http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2">http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2</a></a>  <br>
+<a name="5">[5]</a> Working with LaTeX in Sublime Text 2 (Video) <a href="http://vimeo.com/54484312"><a href="http://vimeo.com/54484312">http://vimeo.com/54484312</a></a><br>
+<a name="6">[6]</a> LaTeXTools Plugin for Sublime Text 2 <a href="https://github.com/SublimeText/LaTeXTools"><a href="https://github.com/SublimeText/LaTeXTools">https://github.com/SublimeText/LaTeXTools</a></a><br>
+<a name="7">[7]</a> Sublime Text 2  <a href="http://www.sublimetext.com/2"><a href="http://www.sublimetext.com/2">http://www.sublimetext.com/2</a></a><br>
+<a name="8">[8]</a> XeLaTex build system for Sublime Text 2 <a href="https://gist.github.com/lusentis/5092219"><a href="https://gist.github.com/lusentis/5092219">https://gist.github.com/lusentis/5092219</a></a>  <br>
+<a name="9">[9]</a> Sublime Package Control <a href="http://wbond.net/sublime_packages/package_control"><a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a></a> <br>
+<a name="10">[10]</a> Skim <a href="http://skim-app.sourceforge.net/"><a href="http://skim-app.sourceforge.net/">http://skim-app.sourceforge.net/</a></a><br><br>
+<a href="#top">Back to Top</a></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Python | Teebone Ding Technical Blog]]></title>
+  <link href="http://www.teeboneding.com/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://www.teeboneding.com/"/>
+  <updated>2015-07-30T16:39:30+08:00</updated>
+  <id>http://www.teeboneding.com/</id>
+  <author>
+    <name><![CDATA[Teebone Ding]]></name>
+    <email><![CDATA[teebone@teeboneding.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[IPython 指令筆記 Written in IPython Notebook]]></title>
+    <link href="http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes/"/>
+    <updated>2015-07-30T12:02:15+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes</id>
+    <content type="html"><![CDATA[<h3><code>tab</code> 可以幫你自動完成函數/變數</h3>
+
+<ul>
+<li>ex: <code>os.[tab]</code></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3><code>%pdoc [MODULE NAME]</code> or <code>[MODULE NAME]?</code> 幫你找出模組的文件</h3>
+
+<ul>
+<li><p>ex: <code>%pdoc os</code> or <code>os?</code></p>
+
+<p>  %pdoc os</p></li>
+</ul>
+
+
+<pre><code>Class docstring:
+    OS routines for NT or Posix depending on what system we're on.
+
+    This exports:
+      - all functions from posix, nt, os2, or ce, e.g. unlink, stat, etc.
+      - os.path is one of the modules posixpath, or ntpath
+      - os.name is 'posix', 'nt', 'os2', 'ce' or 'riscos'
+      - os.curdir is a string representing the current directory ('.' or ':')
+      - os.pardir is a string representing the parent directory ('..' or '::')
+      - os.sep is the (or a most common) pathname separator ('/' or ':' or '\\')
+      - os.extsep is the extension separator ('.' or '/')
+      - os.altsep is the alternate pathname separator (None or '/')
+      - os.pathsep is the component separator used in $PATH etc
+      - os.linesep is the line separator in text files ('\r' or '\n' or '\r\n')
+      - os.defpath is the default search path for executables
+      - os.devnull is the file path of the null device ('/dev/null', etc.)
+
+    Programs that import and use 'os' stand a better chance of being
+    portable between different platforms.  Of course, they must then
+    only use functions that are defined by all platforms (e.g., unlink
+    and opendir), and leave all pathname manipulation to os.path
+    (e.g., split and join).
+</code></pre>
+
+<h3><code>%pfile [MODULE NAME]</code> or <code>[MODULE NAME]??</code> 告訴你函數如何實作</h3>
+
+<ul>
+<li>ex: <code>os.path.join??</code></li>
+</ul>
+
+
+<h3>Magic Commands: 神奇指令們</h3>
+
+<pre><code class="``">    %magic 查看所有的神奇指令。
+    %edit 編輯並執行檔案。
+    %edit -x filename 編輯但不執行檔案。
+    %edit 5:20 filename 編輯檔案第5行、第20個字元。
+    %pwd 顯示目前目錄。
+    %time statement 計算程式碼執行的時間。
+</code></pre>
+
+<h3>呼叫系統指令:</h3>
+
+<ul>
+<li><p>如果要在IPython呼叫系統指令，只需要在指令面前加入!就好，例如要執行ping指令。</p>
+
+<p>  !ping ptt.cc</p>
+
+<p>  Ping ptt.cc [140.112.172.4] (使用 32 位元組的資料):
+  回覆自 140.112.172.4: 位元組=32 時間=4ms TTL=52
+  回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
+  回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
+  回覆自 140.112.172.4: 位元組=32 時間=8ms TTL=52</p>
+
+<p>  140.112.172.4 的 Ping 統計資料:
+      封包: 已傳送 = 4，已收到 = 4, 已遺失 = 0 (0% 遺失)，
+  大約的來回時間 (毫秒):
+      最小值 = 3ms，最大值 = 8ms，平均 = 4ms</p></li>
+</ul>
+
+
+<h3>reload([MODULE NAME]) 重新載入修改後的模組</h3>
+
+<h3>在IPython notebook 裡面畫圖</h3>
+
+<pre><code>import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline  
+</code></pre>
+
+<p>記得加入最後一行 <code>%matplotlib inline</code> 才會讓圖片show在notebook裡面</p>
+
+<pre><code>import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+plt.plot([1,5,2,4])
+
+
+
+
+[&lt;matplotlib.lines.Line2D at 0x55b0e90&gt;]
+</code></pre>
+
+<p><img src="/images/0730/output_11_1.png"></p>
+
+<h3>插入YouTube影片</h3>
+
+<pre><code>from IPython.lib.display import YouTubeVideo
+YouTubeVideo('PjJhg9-EXr8')
+
+
+
+
+
+    &lt;iframe
+        width="400"
+        height="300"
+        src="https://www.youtube.com/embed/PjJhg9-EXr8"
+        frameborder="0"
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+</code></pre>
+
+<h3>嵌入外部網站</h3>
+
+<pre><code>from IPython.core.display import HTML
+HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
+</code></pre>
+
+<p><iframe src="http://www.teeboneding.com" width=800 height=400></p>
+
+<h3>執行python程式檔</h3>
+
+<ul>
+<li>ex: <code>%run test.py</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Generate a YouTube-Video-ID-like Hash Function in Python]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/"/>
+    <updated>2013-10-16T12:02:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python</id>
+    <content type="html"><![CDATA[<p>A youtube video URL is like <code>https://www.youtube.com/watch?v=Qx-ezesM3nA</code>. The video ID consists of 11 characters with ASCII uppercase and lowercase alphabets, digits ,and some other characters. In some cases we would like to generate a hash function that outputs a Youtube-video-ID-like hash value. For example: A <strong>URL shortener</strong> that generate a shorter URL from the original long URL. Here is my implementation:</p>
+
+<!-- more -->
+
+
+<pre><code class="python util.py">import string, random
+def genHash(seed):
+    base = string.ascii_letters+string.digits # Output hash base: all alphabets and digits
+    random.seed(seed) # Input string as the random seed
+    hash_value = ""
+    for i in range(10):
+        # Generate a 10-character hash by randomly select characters from base
+        hash_value += random.choice(base)
+    return hash_value
+</code></pre>
+
+<p>The <code>random.seed()</code> function will determine the output random number sequence. Same seed will output same hash value (random number sequence) that is a 1-to-1 mapping between seed (input) and hash value (output).</p>
+
+<p>Example output:</p>
+
+<pre><code class="python">&gt;&gt;&gt; genHash("DoReMi")
+'pd7yPqNmDB'
+&gt;&gt;&gt; genHash("DoReMiFa")
+'ZiM4CNISMF'
+</code></pre>
+
+<p>One could change the base string to generate different kind of hash that is based on python random module.</p>
+
+<p>If you have any great idea of generating a Youtube-video-ID-like hash, please discuss with me below!</p>
+
+<p style="color:red;font-weight:bold;">10/16 Update</p>
+
+
+<p>Actually <code>random.seed()</code> is implemented by calling a hash function to generate random numbers. Here is the snippet of <code>random.seed()</code> from <a href="http://svn.python.org/projects/python/branches/py3k/Lib/random.py">random.py</a>:</p>
+
+<pre><code class="python random.py">class Random(_random.Random):
+    VERSION = 3     # used by getstate/setstate
+
+    def seed(self, a=None, version=2):
+        """Initialize internal state from hashable object.
+
+        None or no argument seeds from current time or from an operating
+        system specific randomness source if available.
+
+        For version 2 (the default), all of the bits are used if *a *is a str,
+        bytes, or bytearray.  For version 1, the hash() of *a* is used instead.
+
+        If *a* is an int, all bits are used.
+
+        """
+
+        if a is None:
+            try:
+                a = int.from_bytes(_urandom(32), 'big')
+            except NotImplementedError:
+                import time
+                a = int(time.time() * 256) # use fractional seconds
+
+        if version == 2:
+            if isinstance(a, (str, bytes, bytearray)):
+                if isinstance(a, str):
+                    a = a.encode("utf-8")
+                a += _sha512(a).digest()
+                a = int.from_bytes(a, 'big')
+
+        super().seed(a)
+        self.gauss_next = None
+</code></pre>
+
+<p>The seed is generated from SHA512 hash function. The random number sequence will be the same as the seed is the same.</p>
+
+<h3>Reference:</h3>
+
+<p><a href="http://svn.python.org/projects/python/branches/py3k/Lib/random.py">Python Random module implementation</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ordering in Selecting Objects in Django Model]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/"/>
+    <updated>2013-10-11T14:36:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model</id>
+    <content type="html"><![CDATA[<h3>Data ordering</h3>
+
+<p>While retreiving data from Django Model, we might want data that retreived in some ordering. (alphabet, created time, and etc.) Simply use <code>Model.objects.order_by()</code> function.</p>
+
+<!-- more -->
+
+
+<p>The Model class example is the same as <a href="http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model/">selecting objects in django model</a>.</p>
+
+<pre><code class="python model.py">class Request(models.Model):
+    sender = models.CharField(max_length=200)
+    sender_place = models.CharField(max_length=200)
+    receiver = models.CharField(max_length=200)
+    receiver_place = models.CharField(max_length=200)
+    message = models.TextField()  # message leaved by sender
+    vid_id = models.CharField(max_length=200)  # Video URL from YouTube, Vimeo, ... film share web sites
+    share_hash = models.CharField(max_length=200) # Share hash code that the reciever can click to watch
+    create_time = models.DateTimeField(auto_now_add=True)      # share link create time
+</code></pre>
+
+<p>For example, order by &ldquo;sender&rdquo;:</p>
+
+<pre><code class="python">Request.objects.order_by("sender")
+</code></pre>
+
+<p>This will return a list of objects that order by the alphabet of sender&rsquo;s name. If you would like to select data by reverse ordering, add minus sigh (-) before the Field name:</p>
+
+<pre><code class="python">Request.objects.order_by("-created_time")
+</code></pre>
+
+<p>This will return a list with the latest created object in the first place. You can also order by multiple Fields by adding a second ordering like this:</p>
+
+<pre><code class="python">Request.objects.order_by("sender", "-created_time")
+</code></pre>
+
+<p>And this will return a list that order by sender&rsquo;s name first. If there exist a sender&rsquo;s name with more than one object, they will be ordered by reverse created time then.</p>
+
+<h3>Default ordering</h3>
+
+<p>Always retreive data in the same ordering by calling <code>Model.objects.order_by()</code> could be redundant. We can denote a default ordering in Model class and the retreived data will order by the default ordering. Add <code>class Meta</code> in the original Model:</p>
+
+<pre><code class="python model.py">class Request(models.Model):
+    sender = models.CharField(max_length=200)
+    sender_place = models.CharField(max_length=200)
+    receiver = models.CharField(max_length=200)
+    receiver_place = models.CharField(max_length=200)
+    message = models.TextField()  # message leaved by sender
+    vid_id = models.CharField(max_length=200)  # Video URL from YouTube, Vimeo, ... film share web sites
+    share_hash = models.CharField(max_length=200) # Share hash code that the reciever can click to watch
+    create_time = models.DateTimeField(auto_now_add=True)      # share link create time
+
+    # Default ordering: reverse create_time
+    class Meta:
+        ordering = ['-create_time']
+</code></pre>
+
+<p>The <code>class Meta</code> is embedded in <code>class Request</code>. now we can retrieve data with <code>Request.objects.all()</code> that is ordered by reverse created time. This can save calling <code>order_by("-created_time")</code> every time.</p>
+
+<h3>References</h3>
+
+<p><a href="http://django-book.readthedocs.org/en/latest/chapter05.html#ordering-data">Django book Chapter 5 (Model) Ordering Data</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Selecting Objects in Django Model]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model/"/>
+    <updated>2013-10-09T22:23:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model</id>
+    <content type="html"><![CDATA[<p>When we talk about database, the dumb way to select objects in Django is using raw SQL scripts. We don&rsquo;t use SQL directly in Django due to security issues and cross-platform achievement. Using Django database API can avoid most SQL secure holes and you don&rsquo;t have to learn much about database selecting languages which might be slightly different between several Django supported databases. I am going to talk about a little (my notes) in selecting objects in Django model.</p>
+
+<h3>Filtering Objects</h3>
+
+<!-- more -->
+
+
+<p>Here is an example <code>model.py.</code> I created a class &ldquo;Request&rdquo; that is a model stores information about a man sends a message with a youtube video link.</p>
+
+<pre><code class="python model.py">class Request(models.Model):
+    sender = models.CharField(max_length=200)
+    sender_place = models.CharField(max_length=200)
+    receiver = models.CharField(max_length=200)
+    receiver_place = models.CharField(max_length=200)
+    message = models.TextField()  # message leaved by sender
+    vid_id = models.CharField(max_length=200)  # Video URL from YouTube, Vimeo, ... film share web sites
+    share_hash = models.CharField(max_length=200) # Share hash code that the reciever can click to watch
+    create_time = models.DateTimeField(auto_now_add=True)      # share link create time
+</code></pre>
+
+<p>If you would like to select objects with the <code>sender</code> field equals to &ldquo;Alan&rdquo;, use <code>Model.objects.filter()</code> like this:</p>
+
+<pre><code class="python">Request.objects.filter(sender="Alan")
+</code></pre>
+
+<p>This code filters all objects with field <code>sender</code> equals to &ldquo;Alan&rdquo;. The similar SQL is the <code>WHERE</code> clause.</p>
+
+<pre><code class="sql">SELECT * FROM Request WHERE sender = 'Alan';
+</code></pre>
+
+<p>You can filter ojbects with multiple fields in <code>Model.objects.filter()</code>. Just use comma (,) to seperate them. If you would like to filter objects with <code>sender</code> field that &ldquo;contains&rdquo; a term, plus <code>__contains</code> suffix in <code>Model.objects.filter()</code>:</p>
+
+<pre><code class="python">Request.objects.filter(sender__contains="John")
+</code></pre>
+
+<p>Senders like &ldquo;John&rdquo;, &ldquo;Johnson&rdquo; will be selected. The corresponding SQL is the <code>LIKE</code> statement. For example:</p>
+
+<pre><code class="sql">SELECT * FROM Request WHERE sender LIKE '%John%';
+</code></pre>
+
+<p>All lookup suffixes are put in <a href="http://django-book.readthedocs.org/en/latest/appendixB.html#field-lookups">django book appendix B</a>.</p>
+
+<h3>Get an object</h3>
+
+<p>In Django one can also retreive one object by <code>Model.objects.get()</code>. This will return only one object from the Model. <code>Model.objects.filter()</code> returns a list for you. If there are more than one object or no objects return from <code>Model.objects.get()</code>, an error will be returned. The usage of <code>Model.objects.get()</code> is similar to <code>Model.objects.filter()</code>. For instance, get the object with <code>receiver</code> equals to &ldquo;Annie&rdquo;:</p>
+
+<pre><code class="python">Request.objects.get(receiver="Annie")
+</code></pre>
+
+<p>That&rsquo;s all for this post! The references are put below.</p>
+
+<h3>References</h3>
+
+<p><a href="http://django-book.readthedocs.org/en/latest/chapter05.html#selecting-objects">Django book Chapter 5 (Model) Selecting Objects</a></p>
+
+<p><a href="http://django-book.readthedocs.org/en/latest/appendixB.html#field-lookups">Django book Appendix B (Database API) Field Lookups</a></p>
+]]></content>
+  </entry>
+  
+</feed>

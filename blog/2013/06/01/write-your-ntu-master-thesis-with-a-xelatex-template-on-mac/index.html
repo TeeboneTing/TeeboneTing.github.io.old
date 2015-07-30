@@ -1,0 +1,630 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>在Mac系統上撰寫台大碩士論文(XeLaTex樣板) Write Your NTU Master Thesis With a XeLaTex Template on Mac - Teebone Ding Technical Blog</title>
+  <meta name="author" content="Teebone Ding">
+
+  
+  <meta name="description" content="簡介 Introduction 這篇教學文是針對黃子桓 [1] [2] 在Mac寫作台大碩士論文的教學補充文，我使用的樣板為XeLaTex的版本，在處理中文的時候比LaTex+CJK方便很多，強烈推薦使用。另外編輯器我採用個人最喜歡的Sublime Text 2 [7] 作為編寫工具， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Teebone Ding Technical Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-41392110-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Teebone Ding Technical Blog</a></h1>
+  
+    <h2>Django, Python, Javascript, Pig, and Hadoop.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="www.teeboneding.com">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">在Mac系統上撰寫台大碩士論文(XeLaTex樣板) Write Your NTU Master Thesis With a XeLaTex Template on Mac</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-06-01T17:52:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2013</span></span> <span class='time'>5:52 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a name="top"></a></p>
+
+<h2>簡介 Introduction</h2>
+
+
+<p>
+這篇教學文是針對黃子桓 <a href="#1">[1]</a> <a href="#2">[2]</a> 在Mac寫作台大碩士論文的教學補充文，我使用的樣板為XeLaTex的版本，在處理中文的時候比LaTex+CJK方便很多，強烈推薦使用。另外編輯器我採用個人最喜歡的Sublime Text 2 <a href="#7">[7]</a> 作為編寫工具，其作為其它程式碼編輯器也相當實用，推薦！
+</p>
+
+
+<p>
+I assume that the reader of this post wants to write a master thesis in National Taiwan University that is a Chinese native speaker. I wrote this teaching article in Chinese. If you are a reader that is interested in writing LaTex/XeLaTex with Sublime Text 2 on Mac, I suggest you to read reference <a href="#4">[4]</a>, <a href="#5">[5]</a>, <a href="#6">[6]</a>, and <a href="8">[8]</a>. If you are a student in NTU but not a Chinese speaker, email me to <code> teebone [at] teeboneding dot com</code> and I will try to translate this post in English if I have plenty of time after I finish my master thesis this year, good luck!
+</p>
+
+
+<!-- more -->
+
+
+
+
+<h2>準備工具：</h2>
+
+
+<p><ol>
+  <li> Mac 系統 (以下都是以Mac系統作教學，其它系統不見得適用。)
+  <li> MacTex <a href="#3">[3]</a> <a href="下載連結"><a href="http://tug.org/mactex/">http://tug.org/mactex/</a></a>
+  <li> Sublime text 2 <a href="#7">[7]</a> <a href="下載連結"><a href="http://www.sublimetext.com/2">http://www.sublimetext.com/2</a></a>
+  <li> LaTeXTools Plugin for Sublime Text 2 <a href="#6">[6]</a> <a href="GitHub連結"><a href="https://github.com/SublimeText/LaTeXTools">https://github.com/SublimeText/LaTeXTools</a></a>
+  <li> Skim pdf viewer <a href="#10">[10]</a> <a href="下載連結"><a href="http://skim-app.sourceforge.net/">http://skim-app.sourceforge.net/</a></a>
+  <li> 臺灣大學碩博士論文 XeLaTeX 模版 <a href="#2">[2]</a> <a href="GitHub連結"><a href="https://github.com/tzhuan/ntu-thesis/wiki">https://github.com/tzhuan/ntu-thesis/wiki</a></a>
+</uol></p>
+
+<p><h2>軟體安裝：</h2>
+<p>
+MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著就照安裝檔一路按下去就安裝完了。下載與安裝等待的時間很長，這時候可以去下載安裝Sublime Text 2 、Skim以及 LaTexTools pulgin。 LaTexTools pulgin建議搭配教學影片 <a href="#5">[5]</a> 安裝，在安裝完Sublime Text 2後，puglin安裝方式如下：
+</p>
+<p>
+在 <a href="#6">[6]</a> 的GitHub repository中往下拉找到Requirement and Setup那段，安裝pulgin之前要先安裝Sublime Package Control <a href="#9">[9]</a> ，打開Sublime Text 2 後按下快捷鍵 <code>ctrl + `</code> 跳出指令列，輸入以下code:
+</p></p>
+
+<p><figure class='code'><figcaption><span>Install Package Control</span><a href='http://wbond.net/sublime_packages/package_control/installation'>Source Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span><span class="nn">os</span><span class="p">;</span> <span class="n">pf</span><span class="o">=</span><span class="s">&#39;Package Control.sublime-package&#39;</span><span class="p">;</span> <span class="n">ipp</span><span class="o">=</span><span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ipp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ipp</span><span class="p">)</span> <span class="k">else</span> <span class="bp">None</span><span class="p">;</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">()));</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ipp</span><span class="p">,</span><span class="n">pf</span><span class="p">),</span><span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;<a href="http://sublime.wbond.net/&amp;#39;">http://sublime.wbond.net/&amp;#39;</a></span><span class="o">+</span><span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span><span class="s">&#39;%20&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">());</span> <span class="k">print</span><span class="p">(</span><span class="s">&#39;Please restart Sublime Text to finish installation&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><img src="/images/0601/0601-1.png">
+(在圖中最底部的對話框輸入上面的code，按下enter就開始安裝pakage control了。)</p>
+
+<p><p>執行完以後重開Sublime 2就安裝完Package Control了。</p>
+<p>
+安裝完Package Control 以後，在Sublime Text 2底下按 <code>cmd + shift + p</code> 會開啓一個輸入框，這個框框可以搜尋各種sublime text 2功能，非常好用的快捷鍵。我們在這裡輸入 LaTexTools 應該就可以找到我們要安裝的plugin，按下enter就開始安裝了。
+</p></p>
+
+<p><img src="/images/0601/0601-2.png">
+(Search anything in this dialog box!)<br></p>
+
+<p>接下來為了要在Sublime Text 2底下編譯XeLaTex要另外做一項設定<a href="#8">[8]</a>，請在視窗工具列按下 Tools -> Build System -> New Build System …</p>
+
+<p><img src="/images/0601/0601-3.png">
+接著會開啓一個新的文件，先清掉預設的內容，將下面的程式碼貼上：</p>
+
+<p><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Compilation settings</span>
+</span><span class='line'><span class="c1">// ====================</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">// The actual magic happens in the make_pdf command</span>
+</span><span class='line'><span class="c1">// I stick to the format of standard ST2 sublime-build files</span>
+</span><span class='line'><span class="c1">// with minor variations.</span>
+</span><span class='line'><span class="c1">// NOTE: the viewer is NOT configured from here!</span>
+</span><span class='line'><span class="c1">// As of 5/24/11, it cannot be changed, but I will introduce a setting later</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">// General settings; DO NOT MODIFY!!!</span>
+</span><span class='line'>     <span class="s2">&quot;target&quot;</span><span class="o">:</span> <span class="s2">&quot;make_pdf&quot;</span><span class="p">,</span>
+</span><span class='line'>     <span class="s2">&quot;selector&quot;</span><span class="o">:</span> <span class="s2">&quot;text.tex.latex&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">// Mac-specific settings</span>
+</span><span class='line'>     <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="s2">&quot;osx&quot;</span><span class="o">:</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>          <span class="c1">// Mac texification settings</span>
+</span><span class='line'>          <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</span>
+</span><span class='line'>          <span class="c1">// Personalize this, IF you know what you are doing!</span>
+</span><span class='line'>          <span class="c1">// e.g. change &#39;pdflatex&hellip;&#39; to &#39;xelatex&hellip;&#39;</span>
+</span><span class='line'>          <span class="c1">// Refer to the documentation for latexmk</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">// Note: do NOT include $file or similar!!!</span>
+</span><span class='line'>          <span class="c1">// Only configure the compilation parameters you need, MINUS the</span>
+</span><span class='line'>          <span class="c1">// actual file to be compiled</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">// By default, latexmk is told to use pdflatex, with synctex on for</span>
+</span><span class='line'>          <span class="c1">// backward/forward search, forcing compilation (e.g. even if no bib file is found)</span>
+</span><span class='line'>          <span class="c1">// and producing pdf rather than dvi output</span>
+</span><span class='line'>          <span class="c1">// &quot;cmd&quot;: [&quot;latexmk&quot;, &quot;-cd&quot;,</span>
+</span><span class='line'>          <span class="c1">//           &quot;-e&quot;, &quot;\$pdflatex = &#39;pdflatex %O -interaction=nonstopmode -synctex=1 %S&#39;&quot;,</span>
+</span><span class='line'>          <span class="c1">//           //&quot;-silent&quot;,</span>
+</span><span class='line'>          <span class="c1">//           &quot;-f&quot;, &quot;-pdf&quot;],</span>
+</span><span class='line'>          <span class="s2">&quot;cmd&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;xelatex&quot;</span><span class="p">],</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// Paths to TeX binaries; needed as GUI apps do not inherit</span>
+</span><span class='line'>          <span class="c1">// the profile. MUST EXPLICITLY PRE/APPEND $PATH!</span>
+</span><span class='line'>          <span class="c1">// This is preconfigured for MacTeX (2009 and up I guess)</span>
+</span><span class='line'>          <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;$PATH:/usr/texbin:/usr/local/bin&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// DO NOT MESS WITH THE FOLLOWING!!!</span>
+</span><span class='line'>          <span class="s2">&quot;file_regex&quot;</span><span class="o">:</span> <span class="s2">&quot;^(&hellip;<em>?):([0-9]+): ([0-9]</em>)([^\.]+)&quot;</span>
+</span><span class='line'>          <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">// Windows-specific settings</span>
+</span><span class='line'>     <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</span>
+</span><span class='line'>     <span class="s2">&quot;windows&quot;</span><span class="o">:</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>               <span class="c1">// Texification command</span>
+</span><span class='line'>               <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</span>
+</span><span class='line'>               <span class="c1">// See above comments on Mac parameters</span>
+</span><span class='line'>               <span class="c1">// Refer to the documentation for texify</span>
+</span><span class='line'>               <span class="c1">//</span>
+</span><span class='line'>               <span class="c1">// Again, do NOT include $file or similar!!!</span>
+</span><span class='line'>               <span class="c1">//</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// Uncomment ONLY ONE of the &quot;cmd&quot;s given here,</span>
+</span><span class='line'>               <span class="c1">// depending on your tex distro (miktex or texlive)</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// MikTeX 2009 configuration              </span>
+</span><span class='line'>               <span class="c1">// You can also set the MikTeX binaries path here, if you have them</span>
+</span><span class='line'>               <span class="c1">// in a non-standard location that is NOT on your %PATH%</span>
+</span><span class='line'>               <span class="c1">// Useful also if you have both MikTeX and TeXlive installed, and want</span>
+</span><span class='line'>               <span class="c1">// to use MikTeX.</span>
+</span><span class='line'>               <span class="c1">// If you don&#39;t need this, leave it blank, i.e. &quot;&quot;</span>
+</span><span class='line'>               <span class="c1">// ADD $PATH EXPLICITLY AT THE END</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// <strong><em> BEGIN MikTeX 2009 </em></strong></span>
+</span><span class='line'>               <span class="c1">// &quot;cmd&quot;: [&quot;texify&quot;,</span>
+</span><span class='line'>               <span class="c1">//           &quot;-b&quot;, &quot;-p&quot;,</span>
+</span><span class='line'>               <span class="c1">//           &quot;&ndash;tex-option=&amp;quot;&ndash;synctex=1&amp;quot;&quot;</span>
+</span><span class='line'>               <span class="c1">// ],</span>
+</span><span class='line'>               <span class="s2">&quot;cmd&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;xelatex&quot;</span><span class="p">],</span>
+</span><span class='line'>               <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span class='line'>               <span class="c1">// <strong><em> END MikTeX 2009 </em></strong></span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// TeXlive 2011 configuration</span>
+</span><span class='line'>               <span class="c1">// You can als set the TeXlive binaries path here, if you have them</span>
+</span><span class='line'>               <span class="c1">// in a non-standard location that is NOT on your %PATH%</span>
+</span><span class='line'>               <span class="c1">// Useful also if you have both MikTeX and TeXlive installed, and want</span>
+</span><span class='line'>               <span class="c1">// to use TeXlive.</span>
+</span><span class='line'>               <span class="c1">// If you don&#39;t need this, leave it blank, i.e. &quot;&quot;</span>
+</span><span class='line'>               <span class="c1">// ADD $PATH EXPLICITLY AT THE END</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// <strong><em> BEGIN TeXLive 2011 </em></strong></span>
+</span><span class='line'>               <span class="c1">// &quot;cmd&quot;: [&quot;latexmk&quot;, &quot;-cd&quot;,</span>
+</span><span class='line'>               <span class="c1">//      &quot;-e&quot;, &quot;\$pdflatex = &#39;pdflatex %O -interaction=nonstopmode -synctex=1 %S&#39;&quot;,</span>
+</span><span class='line'>               <span class="c1">//     //&quot;-silent&quot;,</span>
+</span><span class='line'>               <span class="c1">//      &quot;-f&quot;, &quot;-pdf&quot;],</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// &quot;path&quot;: &quot;C:\texlive\2011\bin\win32;$PATH&quot;,</span>
+</span><span class='line'>               <span class="c1">// <strong><em> END TeXLive 2011 </em></strong></span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// END OF USER-CONFIGURABLE STUFF!!!</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// DO NOT MESS WITH THE FOLLOWING!!!</span>
+</span><span class='line'>               <span class="s2">&quot;file_regex&quot;</span><span class="o">:</span> <span class="s2">&quot;^((?:.:)?[^:\n\r]<em>):([0-9]+):?([0-9]+)?:? (.</em>)$&quot;</span>
+</span><span class='line'>          <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="s2">&quot;linux&quot;</span><span class="o">:</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>          <span class="c1">// Linux texification settings</span>
+</span><span class='line'>          <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</span>
+</span><span class='line'>          <span class="c1">// Personalize this, IF you know what you are doing!</span>
+</span><span class='line'>          <span class="c1">// e.g. change &#39;pdflatex&hellip;&#39; to &#39;xelatex&hellip;&#39;</span>
+</span><span class='line'>          <span class="c1">// Refer to the documentation for latexmk</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">// Note: do NOT include $file or similar!!!</span>
+</span><span class='line'>          <span class="c1">// Only configure the compilation parameters you need, MINUS the</span>
+</span><span class='line'>          <span class="c1">// actual file to be compiled</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">// By default, latexmk is told to use pdflatex, with synctex on for</span>
+</span><span class='line'>          <span class="c1">// backward/forward search, forcing compilation (e.g. even if no bib file is found)</span>
+</span><span class='line'>          <span class="c1">// and producing pdf rather than dvi output</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// &quot;cmd&quot;: [&quot;latexmk&quot;, &quot;-cd&quot;,</span>
+</span><span class='line'>          <span class="c1">//           &quot;-e&quot;, &quot;\$pdflatex = &#39;pdflatex %O -interaction=nonstopmode -synctex=1 %S&#39;&quot;,</span>
+</span><span class='line'>          <span class="c1">//           &quot;-f&quot;, &quot;-pdf&quot;],</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="s2">&quot;cmd&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;xelatex&quot;</span><span class="p">],</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// Paths to TeX binaries; needed as GUI apps do not inherit</span>
+</span><span class='line'>          <span class="c1">// the profile. MUST EXPLICITLY PRE/APPEND $PATH!</span>
+</span><span class='line'>          <span class="c1">// This is preconfigured for MacTeX (2009 and up I guess)</span>
+</span><span class='line'>          <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;$PATH:/usr/texbin&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// DO NOT MESS WITH THE FOLLOWING!!!</span>
+</span><span class='line'>          <span class="s2">&quot;file_regex&quot;</span><span class="o">:</span> <span class="s2">&quot;^(&hellip;<em>?):([0-9]+): ([0-9]</em>)([^\.]+)&quot;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><p>
+然後存檔，按 <code> cmd + s </code> ，可以更改檔名成 XeLaTex.sublime-build 存檔後你的Build System就多了一個XeLaTex的選項啦，記得把Build System改成你新增的XeLaTex才能順利編譯XeLaTex樣板。 如果你走到這裡還沒有關掉我的教學文，恭喜你已經設定好編輯環境了，別忘了MacTex要裝好！
+</p>
+<p>
+接著去下載黃子桓的XeLaTex台大碩士論文樣板 <a href="#2">[2]</a>，打開thesis.tex並且拉到第16行左右的地方把
+</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="err">\</span><span class="nx">setCJKmainfont</span><span class="p">{</span><span class="err">標楷體</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+改成
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="err">\</span><span class="nx">setCJKmainfont</span><span class="p">{</span><span class="nx">BiauKai</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+則中文顯示的字型問題在Mac上就解決了，不需要再去下載中文字型，其它cwTex之類的都太搞剛。記得把Sublime Text 2 語系調成UTF-8，接著按下 <code>cmd + B</code> 就可以編譯樣板了，正確無誤的話就會看到樣板順利生成pdf啦，Sublime 2 會打開Skim預覽PDF生成檔，接著你就可以照著黃子桓[2]的Github wiki說明撰寫你的論文了，祝你一切順利，早日畢業！
+</p></p>
+
+<p><h2>參考連結 References: </h2></p>
+
+<p><a name="1">[1]</a> 如何用 LaTeX 排版臺灣大學碩士論文？ <a href="http://www.csie.ntu.edu.tw/~tzhuan/www/resources/ntu/"><a href="http://www.csie.ntu.edu.tw/~tzhuan/www/resources/ntu/">http://www.csie.ntu.edu.tw/~tzhuan/www/resources/ntu/</a></a> <br>
+<a name="2">[2]</a> 臺灣大學碩博士論文 XeLaTeX 模版 <a href="https://github.com/tzhuan/ntu-thesis/wiki"><a href="https://github.com/tzhuan/ntu-thesis/wiki">https://github.com/tzhuan/ntu-thesis/wiki</a></a> <br>
+<a name="3">[3]</a> MacTex <a href="http://tug.org/mactex/"><a href="http://tug.org/mactex/">http://tug.org/mactex/</a></a> <br>
+<a name="4">[4]</a> Working with LaTeX in Sublime Text 2 <a href="http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2"><a href="http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2">http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2</a></a>  <br>
+<a name="5">[5]</a> Working with LaTeX in Sublime Text 2 (Video) <a href="http://vimeo.com/54484312"><a href="http://vimeo.com/54484312">http://vimeo.com/54484312</a></a><br>
+<a name="6">[6]</a> LaTeXTools Plugin for Sublime Text 2 <a href="https://github.com/SublimeText/LaTeXTools"><a href="https://github.com/SublimeText/LaTeXTools">https://github.com/SublimeText/LaTeXTools</a></a><br>
+<a name="7">[7]</a> Sublime Text 2  <a href="http://www.sublimetext.com/2"><a href="http://www.sublimetext.com/2">http://www.sublimetext.com/2</a></a><br>
+<a name="8">[8]</a> XeLaTex build system for Sublime Text 2 <a href="https://gist.github.com/lusentis/5092219"><a href="https://gist.github.com/lusentis/5092219">https://gist.github.com/lusentis/5092219</a></a>  <br>
+<a name="9">[9]</a> Sublime Package Control <a href="http://wbond.net/sublime_packages/package_control"><a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a></a> <br>
+<a name="10">[10]</a> Skim <a href="http://skim-app.sourceforge.net/"><a href="http://skim-app.sourceforge.net/">http://skim-app.sourceforge.net/</a></a><br><br>
+<a href="#top">Back to Top</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Teebone Ding</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2013-06-01T17:52:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2013</span></span> <span class='time'>5:52 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/latex/'>latex</a>, <a class='category' href='/blog/categories/sublime-text-2/'>sublime text 2</a>, <a class='category' href='/blog/categories/xelatex/'>xelatex</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/" data-via="" data-counturl="http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies/" title="Previous Post: A survey of job completion time prediction methodologies">&laquo; A survey of job completion time prediction methodologies</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin/" title="Next Post: Fetch URL query string with a jQuery plugin">Fetch URL query string with a jQuery plugin &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>關於 Teebone</h1>
+  <p>A little something about me.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/07/30/ipython-command-notes/">IPython 指令筆記 Written in IPython Notebook</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/">Generate a YouTube-Video-ID-like Hash Function in Python</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/">Ordering in Selecting Objects in Django Model</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/11/chinese-translation-project/">中文補完計劃</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/09/selecting-objects-in-django-model/">Selecting Objects in Django Model</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/TeeboneTing">@TeeboneTing</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'TeeboneTing',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Teebone Ding -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'teeboneding';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/';
+        var disqus_url = 'http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

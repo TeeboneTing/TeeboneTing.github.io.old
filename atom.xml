@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Teebone Ding Technical Blog]]></title>
+  <link href="http://www.teeboneding.com/atom.xml" rel="self"/>
+  <link href="http://www.teeboneding.com/"/>
+  <updated>2015-07-30T16:39:30+08:00</updated>
+  <id>http://www.teeboneding.com/</id>
+  <author>
+    <name><![CDATA[Teebone Ding]]></name>
+    <email><![CDATA[teebone@teeboneding.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[IPython 指令筆記 Written in IPython Notebook]]></title>
+    <link href="http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes/"/>
+    <updated>2015-07-30T12:02:15+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes</id>
+    <content type="html"><![CDATA[<h3><code>tab</code> 可以幫你自動完成函數/變數</h3>
+
+<ul>
+<li>ex: <code>os.[tab]</code></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3><code>%pdoc [MODULE NAME]</code> or <code>[MODULE NAME]?</code> 幫你找出模組的文件</h3>
+
+<ul>
+<li><p>ex: <code>%pdoc os</code> or <code>os?</code></p>
+
+<p>  %pdoc os</p></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Class docstring:
+</span><span class='line'>    OS routines for NT or Posix depending on what system we're on.
+</span><span class='line'>    
+</span><span class='line'>    This exports:
+</span><span class='line'>      - all functions from posix, nt, os2, or ce, e.g. unlink, stat, etc.
+</span><span class='line'>      - os.path is one of the modules posixpath, or ntpath
+</span><span class='line'>      - os.name is 'posix', 'nt', 'os2', 'ce' or 'riscos'
+</span><span class='line'>      - os.curdir is a string representing the current directory ('.' or ':')
+</span><span class='line'>      - os.pardir is a string representing the parent directory ('..' or '::')
+</span><span class='line'>      - os.sep is the (or a most common) pathname separator ('/' or ':' or '\\')
+</span><span class='line'>      - os.extsep is the extension separator ('.' or '/')
+</span><span class='line'>      - os.altsep is the alternate pathname separator (None or '/')
+</span><span class='line'>      - os.pathsep is the component separator used in $PATH etc
+</span><span class='line'>      - os.linesep is the line separator in text files ('\r' or '\n' or '\r\n')
+</span><span class='line'>      - os.defpath is the default search path for executables
+</span><span class='line'>      - os.devnull is the file path of the null device ('/dev/null', etc.)
+</span><span class='line'>    
+</span><span class='line'>    Programs that import and use 'os' stand a better chance of being
+</span><span class='line'>    portable between different platforms.  Of course, they must then
+</span><span class='line'>    only use functions that are defined by all platforms (e.g., unlink
+</span><span class='line'>    and opendir), and leave all pathname manipulation to os.path
+</span><span class='line'>    (e.g., split and join).</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><code>%pfile [MODULE NAME]</code> or <code>[MODULE NAME]??</code> 告訴你函數如何實作</h3>
+
+<ul>
+<li>ex: <code>os.path.join??</code></li>
+</ul>
+
+
+<h3>Magic Commands: 神奇指令們</h3>
+
+<pre><code class="``">    %magic 查看所有的神奇指令。
+    %edit 編輯並執行檔案。
+    %edit -x filename 編輯但不執行檔案。
+    %edit 5:20 filename 編輯檔案第5行、第20個字元。
+    %pwd 顯示目前目錄。
+    %time statement 計算程式碼執行的時間。
+</code></pre>
+
+<h3>呼叫系統指令:</h3>
+
+<ul>
+<li><p>如果要在IPython呼叫系統指令，只需要在指令面前加入!就好，例如要執行ping指令。</p>
+
+<p>  !ping ptt.cc</p>
+
+<p>  Ping ptt.cc [140.112.172.4] (使用 32 位元組的資料):
+  回覆自 140.112.172.4: 位元組=32 時間=4ms TTL=52
+  回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
+  回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
+  回覆自 140.112.172.4: 位元組=32 時間=8ms TTL=52</p>
+
+<p>  140.112.172.4 的 Ping 統計資料:
+      封包: 已傳送 = 4，已收到 = 4, 已遺失 = 0 (0% 遺失)，
+  大約的來回時間 (毫秒):
+      最小值 = 3ms，最大值 = 8ms，平均 = 4ms</p></li>
+</ul>
+
+
+<h3>reload([MODULE NAME]) 重新載入修改後的模組</h3>
+
+<h3>在IPython notebook 裡面畫圖</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import matplotlib
+</span><span class='line'>import numpy as np
+</span><span class='line'>import matplotlib.pyplot as plt
+</span><span class='line'>%matplotlib inline  </span></code></pre></td></tr></table></div></figure>
+
+
+<p>記得加入最後一行 <code>%matplotlib inline</code> 才會讓圖片show在notebook裡面</p>
+
+<pre><code>import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+plt.plot([1,5,2,4])
+
+
+
+
+[&lt;matplotlib.lines.Line2D at 0x55b0e90&gt;]
+</code></pre>
+
+<p><img src="http://www.teeboneding.com/images/0730/output_11_1.png"></p>
+
+<h3>插入YouTube影片</h3>
+
+<pre><code>from IPython.lib.display import YouTubeVideo
+YouTubeVideo('PjJhg9-EXr8')
+
+
+
+
+
+    &lt;iframe
+        width="400"
+        height="300"
+        src="https://www.youtube.com/embed/PjJhg9-EXr8"
+        frameborder="0"
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+</code></pre>
+
+<h3>嵌入外部網站</h3>
+
+<pre><code>from IPython.core.display import HTML
+HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
+</code></pre>
+
+<p><iframe src="http://www.teeboneding.com" width=800 height=400></p>
+
+<h3>執行python程式檔</h3>
+
+<ul>
+<li>ex: <code>%run test.py</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Generate a YouTube-Video-ID-like Hash Function in Python]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/"/>
+    <updated>2013-10-16T12:02:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python</id>
+    <content type="html"><![CDATA[<p>A youtube video URL is like <code>https://www.youtube.com/watch?v=Qx-ezesM3nA</code>. The video ID consists of 11 characters with ASCII uppercase and lowercase alphabets, digits ,and some other characters. In some cases we would like to generate a hash function that outputs a Youtube-video-ID-like hash value. For example: A <strong>URL shortener</strong> that generate a shorter URL from the original long URL. Here is my implementation:</p>
+
+<!-- more -->
+
+
+
+
+<figure class='code'><figcaption><span>util.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">string</span><span class="o">,</span> <span class="nn">random</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">genHash</span><span class="p">(</span><span class="n">seed</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">base</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="o">+</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span> <span class="c"># Output hash base: all alphabets and digits</span>
+</span><span class='line'>    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span> <span class="c"># Input string as the random seed</span>
+</span><span class='line'>    <span class="n">hash_value</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span><span class='line'>        <span class="c"># Generate a 10-character hash by randomly select characters from base</span>
+</span><span class='line'>        <span class="n">hash_value</span> <span class="o">+=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">hash_value</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>random.seed()</code> function will determine the output random number sequence. Same seed will output same hash value (random number sequence) that is a 1-to-1 mapping between seed (input) and hash value (output).</p>
+
+<p>Example output:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">genHash</span><span class="p">(</span><span class="s">&quot;DoReMi&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="s">&#39;pd7yPqNmDB&#39;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">genHash</span><span class="p">(</span><span class="s">&quot;DoReMiFa&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="s">&#39;ZiM4CNISMF&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One could change the base string to generate different kind of hash that is based on python random module.</p>
+
+<p>If you have any great idea of generating a Youtube-video-ID-like hash, please discuss with me below!</p>
+
+<p style="color:red;font-weight:bold;">10/16 Update</p>
+
+
+<p>Actually <code>random.seed()</code> is implemented by calling a hash function to generate random numbers. Here is the snippet of <code>random.seed()</code> from <a href="http://svn.python.org/projects/python/branches/py3k/Lib/random.py">random.py</a>:</p>
+
+<figure class='code'><figcaption><span>random.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">Random</span><span class="p">(</span><span class="n">_random</span><span class="o">.</span><span class="n">Random</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">VERSION</span> <span class="o">=</span> <span class="mi">3</span>     <span class="c"># used by getstate/setstate</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">seed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+</span><span class='line'>        <span class="sd">&quot;&quot;&quot;Initialize internal state from hashable object.</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">        None or no argument seeds from current time or from an operating</span>
+</span><span class='line'><span class="sd">        system specific randomness source if available.</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">        For version 2 (the default), all of the bits are used if *a *is a str,</span>
+</span><span class='line'><span class="sd">        bytes, or bytearray.  For version 1, the hash() of *a* is used instead.</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">        If *a* is an int, all bits are used.</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">        &quot;&quot;&quot;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+</span><span class='line'>            <span class="k">try</span><span class="p">:</span>
+</span><span class='line'>                <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">_urandom</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="s">&#39;big&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+</span><span class='line'>                <span class="kn">import</span> <span class="nn">time</span>
+</span><span class='line'>                <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">256</span><span class="p">)</span> <span class="c"># use fractional seconds</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">version</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+</span><span class='line'>            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="nb">bytearray</span><span class="p">)):</span>
+</span><span class='line'>                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span class='line'>                    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;utf-8&quot;</span><span class="p">)</span>
+</span><span class='line'>                <span class="n">a</span> <span class="o">+=</span> <span class="n">_sha512</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+</span><span class='line'>                <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s">&#39;big&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">gauss_next</span> <span class="o">=</span> <span class="bp">None</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The seed is generated from SHA512 hash function. The random number sequence will be the same as the seed is the same.</p>
+
+<h3>Reference:</h3>
+
+<p><a href="http://svn.python.org/projects/python/branches/py3k/Lib/random.py">Python Random module implementation</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ordering in Selecting Objects in Django Model]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/"/>
+    <updated>2013-10-11T14:36:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model</id>
+    <content type="html"><![CDATA[<h3>Data ordering</h3>
+
+<p>While retreiving data from Django Model, we might want data that retreived in some ordering. (alphabet, created time, and etc.) Simply use <code>Model.objects.order_by()</code> function.</p>
+
+<!-- more -->
+
+
+<p>The Model class example is the same as <a href="http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model/">selecting objects in django model</a>.</p>
+
+<figure class='code'><figcaption><span>model.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span class='line'>  <span class="n">sender</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">sender_place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">receiver</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">receiver_place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">message</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>  <span class="c"># message leaved by sender</span>
+</span><span class='line'>  <span class="n">vid_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>  <span class="c"># Video URL from YouTube, Vimeo, ... film share web sites</span>
+</span><span class='line'>  <span class="n">share_hash</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span> <span class="c"># Share hash code that the reciever can click to watch</span>
+</span><span class='line'>  <span class="n">create_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>      <span class="c"># share link create time</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For example, order by &ldquo;sender&rdquo;:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">Request</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&quot;sender&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will return a list of objects that order by the alphabet of sender&rsquo;s name. If you would like to select data by reverse ordering, add minus sigh (-) before the Field name:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">Request</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&quot;-created_time&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will return a list with the latest created object in the first place. You can also order by multiple Fields by adding a second ordering like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">Request</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&quot;sender&quot;</span><span class="p">,</span> <span class="s">&quot;-created_time&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And this will return a list that order by sender&rsquo;s name first. If there exist a sender&rsquo;s name with more than one object, they will be ordered by reverse created time then.</p>
+
+<h3>Default ordering</h3>
+
+<p>Always retreive data in the same ordering by calling <code>Model.objects.order_by()</code> could be redundant. We can denote a default ordering in Model class and the retreived data will order by the default ordering. Add <code>class Meta</code> in the original Model:</p>
+
+<figure class='code'><figcaption><span>model.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span class='line'>  <span class="n">sender</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">sender_place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">receiver</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">receiver_place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">message</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>  <span class="c"># message leaved by sender</span>
+</span><span class='line'>  <span class="n">vid_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>  <span class="c"># Video URL from YouTube, Vimeo, ... film share web sites</span>
+</span><span class='line'>  <span class="n">share_hash</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span> <span class="c"># Share hash code that the reciever can click to watch</span>
+</span><span class='line'>  <span class="n">create_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>      <span class="c"># share link create time</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c"># Default ordering: reverse create_time</span>
+</span><span class='line'>  <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span><span class='line'>      <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;-create_time&#39;</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>class Meta</code> is embedded in <code>class Request</code>. now we can retrieve data with <code>Request.objects.all()</code> that is ordered by reverse created time. This can save calling <code>order_by("-created_time")</code> every time.</p>
+
+<h3>References</h3>
+
+<p><a href="http://django-book.readthedocs.org/en/latest/chapter05.html#ordering-data">Django book Chapter 5 (Model) Ordering Data</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[中文補完計劃]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project/"/>
+    <updated>2013-10-11T12:14:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project</id>
+    <content type="html"><![CDATA[<h2>Chinese Translation Project</h2>
+
+<p><a href="http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project/#Eng">English version</a></p>
+
+<p>這個部落格紀錄我在學習程式上的心得或筆記，為了讓可以看的懂的人不分國家，大部分都以英文撰寫為主。
+我是一個以中文為母語的人，對於寫作的掌握自然比英文強很多，為了讓廣大的中文使用者也能分享資訊，
+我開始考慮有時間的話每一篇文章都有中英兩種語言的版本。對於可以同時掌握兩種最多人使用的語言的我感到開心與興奮，
+也期許自己能成為一個有教導能力的人。</p>
+
+<p>希望不是淪為嘴炮，這一篇開始就來個雙語版文章好了&hellip;(倒)</p>
+
+<!-- more -->
+
+
+<p><a name="Eng"></a>
+This blog records my notes and useful information on my way learning coding. To make my blog worldwide accessable, I primary wrote in English. As a matter of fact, I am a Mandarin Chinese native speaker. I can read and write in Chinese fluently. To share my thoughts with Chinese readers, I would like to translate my posts into Chinese if I have spare time to do so. I am so glad and excited to understand the most popular two main languages in the world. I also try to be a teaching person and share my thoughts with others.</p>
+
+<p>I hope this is not just talking, let&rsquo;s translate this post in English now&hellip;(sigh).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Selecting Objects in Django Model]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model/"/>
+    <updated>2013-10-09T22:23:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model</id>
+    <content type="html"><![CDATA[<p>When we talk about database, the dumb way to select objects in Django is using raw SQL scripts. We don&rsquo;t use SQL directly in Django due to security issues and cross-platform achievement. Using Django database API can avoid most SQL secure holes and you don&rsquo;t have to learn much about database selecting languages which might be slightly different between several Django supported databases. I am going to talk about a little (my notes) in selecting objects in Django model.</p>
+
+<h3>Filtering Objects</h3>
+
+<!-- more -->
+
+
+<p>Here is an example <code>model.py.</code> I created a class &ldquo;Request&rdquo; that is a model stores information about a man sends a message with a youtube video link.</p>
+
+<figure class='code'><figcaption><span>model.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span class='line'>  <span class="n">sender</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">sender_place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">receiver</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">receiver_place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">message</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>  <span class="c"># message leaved by sender</span>
+</span><span class='line'>  <span class="n">vid_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>  <span class="c"># Video URL from YouTube, Vimeo, ... film share web sites</span>
+</span><span class='line'>  <span class="n">share_hash</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span> <span class="c"># Share hash code that the reciever can click to watch</span>
+</span><span class='line'>  <span class="n">create_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>      <span class="c"># share link create time</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you would like to select objects with the <code>sender</code> field equals to &ldquo;Alan&rdquo;, use <code>Model.objects.filter()</code> like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">Request</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="s">&quot;Alan&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This code filters all objects with field <code>sender</code> equals to &ldquo;Alan&rdquo;. The similar SQL is the <code>WHERE</code> clause.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Request</span> <span class="k">WHERE</span> <span class="n">sender</span> <span class="o">=</span> <span class="s1">&#39;Alan&#39;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can filter ojbects with multiple fields in <code>Model.objects.filter()</code>. Just use comma (,) to seperate them. If you would like to filter objects with <code>sender</code> field that &ldquo;contains&rdquo; a term, plus <code>__contains</code> suffix in <code>Model.objects.filter()</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">Request</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">sender__contains</span><span class="o">=</span><span class="s">&quot;John&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Senders like &ldquo;John&rdquo;, &ldquo;Johnson&rdquo; will be selected. The corresponding SQL is the <code>LIKE</code> statement. For example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Request</span> <span class="k">WHERE</span> <span class="n">sender</span> <span class="k">LIKE</span> <span class="s1">&#39;%John%&#39;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>All lookup suffixes are put in <a href="http://django-book.readthedocs.org/en/latest/appendixB.html#field-lookups">django book appendix B</a>.</p>
+
+<h3>Get an object</h3>
+
+<p>In Django one can also retreive one object by <code>Model.objects.get()</code>. This will return only one object from the Model. <code>Model.objects.filter()</code> returns a list for you. If there are more than one object or no objects return from <code>Model.objects.get()</code>, an error will be returned. The usage of <code>Model.objects.get()</code> is similar to <code>Model.objects.filter()</code>. For instance, get the object with <code>receiver</code> equals to &ldquo;Annie&rdquo;:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">Request</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">receiver</span><span class="o">=</span><span class="s">&quot;Annie&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&rsquo;s all for this post! The references are put below.</p>
+
+<h3>References</h3>
+
+<p><a href="http://django-book.readthedocs.org/en/latest/chapter05.html#selecting-objects">Django book Chapter 5 (Model) Selecting Objects</a></p>
+
+<p><a href="http://django-book.readthedocs.org/en/latest/appendixB.html#field-lookups">Django book Appendix B (Database API) Field Lookups</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fetch URL Query String With a jQuery Plugin]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin/"/>
+    <updated>2013-10-09T17:55:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin</id>
+    <content type="html"><![CDATA[<h3>Useful plugin for fetching URL parameters</h3>
+
+<p>Download the plugin <a href="https://code.google.com/p/gantry/source/browse/trunk/root/js/jquery.url.min.js?r=1485">here</a>:</p>
+
+<p>Include jQuery and this plugin in your HTML page:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;js/jquery.url.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!-- more -->
+
+
+<p>The source code of the jquery plugin is here:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">jQuery Url Plugin</span>
+</span><span class='line'><span class="cm"> * Version 1.0</span>
+</span><span class='line'><span class="cm"> * 2009-03-22 19:30:05</span>
+</span><span class='line'><span class="cm"> * URL: http://ajaxcssblog.com/jquery/url-read-get-variables/</span>
+</span><span class='line'><span class="cm"> * Description: jQuery Url Plugin gives the ability to read GET parameters from the actual URL</span>
+</span><span class='line'><span class="cm"> * Author: Matthias Jäggli</span>
+</span><span class='line'><span class="cm"> * Copyright: Copyright (c) 2009 Matthias Jäggli under dual MIT/GPL license.</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'> <span class="nx">$</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'> <span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">_params</span><span class="o">:</span> <span class="p">{},</span>
+</span><span class='line'>  <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>   <span class="kd">var</span> <span class="nx">paramsRaw</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>   <span class="k">try</span><span class="p">{</span>
+</span><span class='line'>    <span class="nx">paramsRaw</span> <span class="o">=</span>
+</span><span class='line'>     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">||</span> <span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;&amp;&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="p">[];</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span> <span class="nx">paramsRaw</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class='line'>     <span class="kd">var</span> <span class="nx">single</span> <span class="o">=</span> <span class="nx">paramsRaw</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">);</span>
+</span><span class='line'>     <span class="k">if</span><span class="p">(</span><span class="nx">single</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">_params</span><span class="p">[</span><span class="nx">single</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">unescape</span><span class="p">(</span><span class="nx">single</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>   <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">alert</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">param</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+</span><span class='line'>   <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_params</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">||</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">paramAll</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>   <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_params</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'> <span class="p">});</span>
+</span><span class='line'> <span class="nx">$</span><span class="p">.</span><span class="nx">url</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</span><span class='line'><span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Using the plugin:</h3>
+
+<p><strong>$.url.param(&ldquo;PARAMETER_NAME&rdquo;)</strong></p>
+
+<p>For instance, if you would like to fetch a parameter called &ldquo;man&rdquo; and the current page URL is <code>http://example.com?man=dude</code>, just call <code>$.url.param("man")</code> and it will return a string &ldquo;dude&rdquo; for you.</p>
+
+<p>If the parameter name you denoted does not exist, it will return nothing (empty string).</p>
+
+<p><strong>$.url.paramAll()</strong></p>
+
+<p>To fetch all parameters from current URL, call <code>$.url.paramAll()</code> and it will return an array of all parameters.</p>
+
+<h3>Reference:</h3>
+
+<p><a href="http://paladinprogram.blogspot.tw/2009/11/jquery-url.html">http://paladinprogram.blogspot.tw/2009/11/jquery-url.html</a></p>
+
+<p><a href="https://code.google.com/p/gantry/source/browse/trunk/root/js/jquery.url.min.js?r=1485">https://code.google.com/p/gantry/source/browse/trunk/root/js/jquery.url.min.js?r=1485</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在Mac系統上撰寫台大碩士論文(XeLaTex樣板) Write Your NTU Master Thesis With a XeLaTex Template on Mac]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/"/>
+    <updated>2013-06-01T17:52:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac</id>
+    <content type="html"><![CDATA[<p><a name="top"></a></p>
+
+<h2>簡介 Introduction</h2>
+
+
+<p>
+這篇教學文是針對黃子桓 <a href="#1">[1]</a> <a href="#2">[2]</a> 在Mac寫作台大碩士論文的教學補充文，我使用的樣板為XeLaTex的版本，在處理中文的時候比LaTex+CJK方便很多，強烈推薦使用。另外編輯器我採用個人最喜歡的Sublime Text 2 <a href="#7">[7]</a> 作為編寫工具，其作為其它程式碼編輯器也相當實用，推薦！
+</p>
+
+
+<p>
+I assume that the reader of this post wants to write a master thesis in National Taiwan University that is a Chinese native speaker. I wrote this teaching article in Chinese. If you are a reader that is interested in writing LaTex/XeLaTex with Sublime Text 2 on Mac, I suggest you to read reference <a href="#4">[4]</a>, <a href="#5">[5]</a>, <a href="#6">[6]</a>, and <a href="8">[8]</a>. If you are a student in NTU but not a Chinese speaker, email me to <code> teebone [at] teeboneding dot com</code> and I will try to translate this post in English if I have plenty of time after I finish my master thesis this year, good luck!
+</p>
+
+
+<!-- more -->
+
+
+
+
+<h2>準備工具：</h2>
+
+
+<p><ol>
+  <li> Mac 系統 (以下都是以Mac系統作教學，其它系統不見得適用。)
+  <li> MacTex <a href="#3">[3]</a> <a href="下載連結"><a href="http://tug.org/mactex/">http://tug.org/mactex/</a></a>
+  <li> Sublime text 2 <a href="#7">[7]</a> <a href="下載連結"><a href="http://www.sublimetext.com/2">http://www.sublimetext.com/2</a></a>
+  <li> LaTeXTools Plugin for Sublime Text 2 <a href="#6">[6]</a> <a href="GitHub連結"><a href="https://github.com/SublimeText/LaTeXTools">https://github.com/SublimeText/LaTeXTools</a></a>
+  <li> Skim pdf viewer <a href="#10">[10]</a> <a href="下載連結"><a href="http://skim-app.sourceforge.net/">http://skim-app.sourceforge.net/</a></a>
+  <li> 臺灣大學碩博士論文 XeLaTeX 模版 <a href="#2">[2]</a> <a href="GitHub連結"><a href="https://github.com/tzhuan/ntu-thesis/wiki">https://github.com/tzhuan/ntu-thesis/wiki</a></a>
+</uol></p>
+
+<p><h2>軟體安裝：</h2>
+<p>
+MacTex可由 <a href="#3">[3]</a> 連結下載，檔案很大近2.1GB，接著就照安裝檔一路按下去就安裝完了。下載與安裝等待的時間很長，這時候可以去下載安裝Sublime Text 2 、Skim以及 LaTexTools pulgin。 LaTexTools pulgin建議搭配教學影片 <a href="#5">[5]</a> 安裝，在安裝完Sublime Text 2後，puglin安裝方式如下：
+</p>
+<p>
+在 <a href="#6">[6]</a> 的GitHub repository中往下拉找到Requirement and Setup那段，安裝pulgin之前要先安裝Sublime Package Control <a href="#9">[9]</a> ，打開Sublime Text 2 後按下快捷鍵 <code>ctrl + `</code> 跳出指令列，輸入以下code:
+</p></p>
+
+<p><figure class='code'><figcaption><span>Install Package Control</span><a href='http://wbond.net/sublime_packages/package_control/installation'>Source Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span><span class="nn">os</span><span class="p">;</span> <span class="n">pf</span><span class="o">=</span><span class="s">&#39;Package Control.sublime-package&#39;</span><span class="p">;</span> <span class="n">ipp</span><span class="o">=</span><span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ipp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ipp</span><span class="p">)</span> <span class="k">else</span> <span class="bp">None</span><span class="p">;</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">()));</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ipp</span><span class="p">,</span><span class="n">pf</span><span class="p">),</span><span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;<a href="http://sublime.wbond.net/&amp;#39;">http://sublime.wbond.net/&amp;#39;</a></span><span class="o">+</span><span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span><span class="s">&#39;%20&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">());</span> <span class="k">print</span><span class="p">(</span><span class="s">&#39;Please restart Sublime Text to finish installation&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><img src="http://www.teeboneding.com/images/0601/0601-1.png">
+(在圖中最底部的對話框輸入上面的code，按下enter就開始安裝pakage control了。)</p>
+
+<p><p>執行完以後重開Sublime 2就安裝完Package Control了。</p>
+<p>
+安裝完Package Control 以後，在Sublime Text 2底下按 <code>cmd + shift + p</code> 會開啓一個輸入框，這個框框可以搜尋各種sublime text 2功能，非常好用的快捷鍵。我們在這裡輸入 LaTexTools 應該就可以找到我們要安裝的plugin，按下enter就開始安裝了。
+</p></p>
+
+<p><img src="http://www.teeboneding.com/images/0601/0601-2.png">
+(Search anything in this dialog box!)<br></p>
+
+<p>接下來為了要在Sublime Text 2底下編譯XeLaTex要另外做一項設定<a href="#8">[8]</a>，請在視窗工具列按下 Tools -> Build System -> New Build System …</p>
+
+<p><img src="http://www.teeboneding.com/images/0601/0601-3.png">
+接著會開啓一個新的文件，先清掉預設的內容，將下面的程式碼貼上：</p>
+
+<p><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Compilation settings</span>
+</span><span class='line'><span class="c1">// ====================</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">// The actual magic happens in the make_pdf command</span>
+</span><span class='line'><span class="c1">// I stick to the format of standard ST2 sublime-build files</span>
+</span><span class='line'><span class="c1">// with minor variations.</span>
+</span><span class='line'><span class="c1">// NOTE: the viewer is NOT configured from here!</span>
+</span><span class='line'><span class="c1">// As of 5/24/11, it cannot be changed, but I will introduce a setting later</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">// General settings; DO NOT MODIFY!!!</span>
+</span><span class='line'>     <span class="s2">&quot;target&quot;</span><span class="o">:</span> <span class="s2">&quot;make_pdf&quot;</span><span class="p">,</span>
+</span><span class='line'>     <span class="s2">&quot;selector&quot;</span><span class="o">:</span> <span class="s2">&quot;text.tex.latex&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">// Mac-specific settings</span>
+</span><span class='line'>     <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="s2">&quot;osx&quot;</span><span class="o">:</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>          <span class="c1">// Mac texification settings</span>
+</span><span class='line'>          <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</span>
+</span><span class='line'>          <span class="c1">// Personalize this, IF you know what you are doing!</span>
+</span><span class='line'>          <span class="c1">// e.g. change &#39;pdflatex&hellip;&#39; to &#39;xelatex&hellip;&#39;</span>
+</span><span class='line'>          <span class="c1">// Refer to the documentation for latexmk</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">// Note: do NOT include $file or similar!!!</span>
+</span><span class='line'>          <span class="c1">// Only configure the compilation parameters you need, MINUS the</span>
+</span><span class='line'>          <span class="c1">// actual file to be compiled</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">// By default, latexmk is told to use pdflatex, with synctex on for</span>
+</span><span class='line'>          <span class="c1">// backward/forward search, forcing compilation (e.g. even if no bib file is found)</span>
+</span><span class='line'>          <span class="c1">// and producing pdf rather than dvi output</span>
+</span><span class='line'>          <span class="c1">// &quot;cmd&quot;: [&quot;latexmk&quot;, &quot;-cd&quot;,</span>
+</span><span class='line'>          <span class="c1">//           &quot;-e&quot;, &quot;\$pdflatex = &#39;pdflatex %O -interaction=nonstopmode -synctex=1 %S&#39;&quot;,</span>
+</span><span class='line'>          <span class="c1">//           //&quot;-silent&quot;,</span>
+</span><span class='line'>          <span class="c1">//           &quot;-f&quot;, &quot;-pdf&quot;],</span>
+</span><span class='line'>          <span class="s2">&quot;cmd&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;xelatex&quot;</span><span class="p">],</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// Paths to TeX binaries; needed as GUI apps do not inherit</span>
+</span><span class='line'>          <span class="c1">// the profile. MUST EXPLICITLY PRE/APPEND $PATH!</span>
+</span><span class='line'>          <span class="c1">// This is preconfigured for MacTeX (2009 and up I guess)</span>
+</span><span class='line'>          <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;$PATH:/usr/texbin:/usr/local/bin&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// DO NOT MESS WITH THE FOLLOWING!!!</span>
+</span><span class='line'>          <span class="s2">&quot;file_regex&quot;</span><span class="o">:</span> <span class="s2">&quot;^(&hellip;<em>?):([0-9]+): ([0-9]</em>)([^\.]+)&quot;</span>
+</span><span class='line'>          <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">// Windows-specific settings</span>
+</span><span class='line'>     <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</span>
+</span><span class='line'>     <span class="s2">&quot;windows&quot;</span><span class="o">:</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>               <span class="c1">// Texification command</span>
+</span><span class='line'>               <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</span>
+</span><span class='line'>               <span class="c1">// See above comments on Mac parameters</span>
+</span><span class='line'>               <span class="c1">// Refer to the documentation for texify</span>
+</span><span class='line'>               <span class="c1">//</span>
+</span><span class='line'>               <span class="c1">// Again, do NOT include $file or similar!!!</span>
+</span><span class='line'>               <span class="c1">//</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// Uncomment ONLY ONE of the &quot;cmd&quot;s given here,</span>
+</span><span class='line'>               <span class="c1">// depending on your tex distro (miktex or texlive)</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// MikTeX 2009 configuration              </span>
+</span><span class='line'>               <span class="c1">// You can also set the MikTeX binaries path here, if you have them</span>
+</span><span class='line'>               <span class="c1">// in a non-standard location that is NOT on your %PATH%</span>
+</span><span class='line'>               <span class="c1">// Useful also if you have both MikTeX and TeXlive installed, and want</span>
+</span><span class='line'>               <span class="c1">// to use MikTeX.</span>
+</span><span class='line'>               <span class="c1">// If you don&#39;t need this, leave it blank, i.e. &quot;&quot;</span>
+</span><span class='line'>               <span class="c1">// ADD $PATH EXPLICITLY AT THE END</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// <strong><em> BEGIN MikTeX 2009 </em></strong></span>
+</span><span class='line'>               <span class="c1">// &quot;cmd&quot;: [&quot;texify&quot;,</span>
+</span><span class='line'>               <span class="c1">//           &quot;-b&quot;, &quot;-p&quot;,</span>
+</span><span class='line'>               <span class="c1">//           &quot;&ndash;tex-option=&amp;quot;&ndash;synctex=1&amp;quot;&quot;</span>
+</span><span class='line'>               <span class="c1">// ],</span>
+</span><span class='line'>               <span class="s2">&quot;cmd&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;xelatex&quot;</span><span class="p">],</span>
+</span><span class='line'>               <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span class='line'>               <span class="c1">// <strong><em> END MikTeX 2009 </em></strong></span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// TeXlive 2011 configuration</span>
+</span><span class='line'>               <span class="c1">// You can als set the TeXlive binaries path here, if you have them</span>
+</span><span class='line'>               <span class="c1">// in a non-standard location that is NOT on your %PATH%</span>
+</span><span class='line'>               <span class="c1">// Useful also if you have both MikTeX and TeXlive installed, and want</span>
+</span><span class='line'>               <span class="c1">// to use TeXlive.</span>
+</span><span class='line'>               <span class="c1">// If you don&#39;t need this, leave it blank, i.e. &quot;&quot;</span>
+</span><span class='line'>               <span class="c1">// ADD $PATH EXPLICITLY AT THE END</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// <strong><em> BEGIN TeXLive 2011 </em></strong></span>
+</span><span class='line'>               <span class="c1">// &quot;cmd&quot;: [&quot;latexmk&quot;, &quot;-cd&quot;,</span>
+</span><span class='line'>               <span class="c1">//      &quot;-e&quot;, &quot;\$pdflatex = &#39;pdflatex %O -interaction=nonstopmode -synctex=1 %S&#39;&quot;,</span>
+</span><span class='line'>               <span class="c1">//     //&quot;-silent&quot;,</span>
+</span><span class='line'>               <span class="c1">//      &quot;-f&quot;, &quot;-pdf&quot;],</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// &quot;path&quot;: &quot;C:\texlive\2011\bin\win32;$PATH&quot;,</span>
+</span><span class='line'>               <span class="c1">// <strong><em> END TeXLive 2011 </em></strong></span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// END OF USER-CONFIGURABLE STUFF!!!</span>
+</span><span class='line'>
+</span><span class='line'>               <span class="c1">// DO NOT MESS WITH THE FOLLOWING!!!</span>
+</span><span class='line'>               <span class="s2">&quot;file_regex&quot;</span><span class="o">:</span> <span class="s2">&quot;^((?:.:)?[^:\n\r]<em>):([0-9]+):?([0-9]+)?:? (.</em>)$&quot;</span>
+</span><span class='line'>          <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="s2">&quot;linux&quot;</span><span class="o">:</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>          <span class="c1">// Linux texification settings</span>
+</span><span class='line'>          <span class="c1">// &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</span>
+</span><span class='line'>          <span class="c1">// Personalize this, IF you know what you are doing!</span>
+</span><span class='line'>          <span class="c1">// e.g. change &#39;pdflatex&hellip;&#39; to &#39;xelatex&hellip;&#39;</span>
+</span><span class='line'>          <span class="c1">// Refer to the documentation for latexmk</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">// Note: do NOT include $file or similar!!!</span>
+</span><span class='line'>          <span class="c1">// Only configure the compilation parameters you need, MINUS the</span>
+</span><span class='line'>          <span class="c1">// actual file to be compiled</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">// By default, latexmk is told to use pdflatex, with synctex on for</span>
+</span><span class='line'>          <span class="c1">// backward/forward search, forcing compilation (e.g. even if no bib file is found)</span>
+</span><span class='line'>          <span class="c1">// and producing pdf rather than dvi output</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// &quot;cmd&quot;: [&quot;latexmk&quot;, &quot;-cd&quot;,</span>
+</span><span class='line'>          <span class="c1">//           &quot;-e&quot;, &quot;\$pdflatex = &#39;pdflatex %O -interaction=nonstopmode -synctex=1 %S&#39;&quot;,</span>
+</span><span class='line'>          <span class="c1">//           &quot;-f&quot;, &quot;-pdf&quot;],</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="s2">&quot;cmd&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;xelatex&quot;</span><span class="p">],</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// Paths to TeX binaries; needed as GUI apps do not inherit</span>
+</span><span class='line'>          <span class="c1">// the profile. MUST EXPLICITLY PRE/APPEND $PATH!</span>
+</span><span class='line'>          <span class="c1">// This is preconfigured for MacTeX (2009 and up I guess)</span>
+</span><span class='line'>          <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;$PATH:/usr/texbin&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">// DO NOT MESS WITH THE FOLLOWING!!!</span>
+</span><span class='line'>          <span class="s2">&quot;file_regex&quot;</span><span class="o">:</span> <span class="s2">&quot;^(&hellip;<em>?):([0-9]+): ([0-9]</em>)([^\.]+)&quot;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><p>
+然後存檔，按 <code> cmd + s </code> ，可以更改檔名成 XeLaTex.sublime-build 存檔後你的Build System就多了一個XeLaTex的選項啦，記得把Build System改成你新增的XeLaTex才能順利編譯XeLaTex樣板。 如果你走到這裡還沒有關掉我的教學文，恭喜你已經設定好編輯環境了，別忘了MacTex要裝好！
+</p>
+<p>
+接著去下載黃子桓的XeLaTex台大碩士論文樣板 <a href="#2">[2]</a>，打開thesis.tex並且拉到第16行左右的地方把
+</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="err">\</span><span class="nx">setCJKmainfont</span><span class="p">{</span><span class="err">標楷體</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+改成
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="err">\</span><span class="nx">setCJKmainfont</span><span class="p">{</span><span class="nx">BiauKai</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+則中文顯示的字型問題在Mac上就解決了，不需要再去下載中文字型，其它cwTex之類的都太搞剛。記得把Sublime Text 2 語系調成UTF-8，接著按下 <code>cmd + B</code> 就可以編譯樣板了，正確無誤的話就會看到樣板順利生成pdf啦，Sublime 2 會打開Skim預覽PDF生成檔，接著你就可以照著黃子桓[2]的Github wiki說明撰寫你的論文了，祝你一切順利，早日畢業！
+</p></p>
+
+<p><h2>參考連結 References: </h2></p>
+
+<p><a name="1">[1]</a> 如何用 LaTeX 排版臺灣大學碩士論文？ <a href="http://www.csie.ntu.edu.tw/~tzhuan/www/resources/ntu/"><a href="http://www.csie.ntu.edu.tw/~tzhuan/www/resources/ntu/">http://www.csie.ntu.edu.tw/~tzhuan/www/resources/ntu/</a></a> <br>
+<a name="2">[2]</a> 臺灣大學碩博士論文 XeLaTeX 模版 <a href="https://github.com/tzhuan/ntu-thesis/wiki"><a href="https://github.com/tzhuan/ntu-thesis/wiki">https://github.com/tzhuan/ntu-thesis/wiki</a></a> <br>
+<a name="3">[3]</a> MacTex <a href="http://tug.org/mactex/"><a href="http://tug.org/mactex/">http://tug.org/mactex/</a></a> <br>
+<a name="4">[4]</a> Working with LaTeX in Sublime Text 2 <a href="http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2"><a href="http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2">http://www.practicallyefficient.com/home/2012/11/29/working-with-latex-in-sublime-text-2</a></a>  <br>
+<a name="5">[5]</a> Working with LaTeX in Sublime Text 2 (Video) <a href="http://vimeo.com/54484312"><a href="http://vimeo.com/54484312">http://vimeo.com/54484312</a></a><br>
+<a name="6">[6]</a> LaTeXTools Plugin for Sublime Text 2 <a href="https://github.com/SublimeText/LaTeXTools"><a href="https://github.com/SublimeText/LaTeXTools">https://github.com/SublimeText/LaTeXTools</a></a><br>
+<a name="7">[7]</a> Sublime Text 2  <a href="http://www.sublimetext.com/2"><a href="http://www.sublimetext.com/2">http://www.sublimetext.com/2</a></a><br>
+<a name="8">[8]</a> XeLaTex build system for Sublime Text 2 <a href="https://gist.github.com/lusentis/5092219"><a href="https://gist.github.com/lusentis/5092219">https://gist.github.com/lusentis/5092219</a></a>  <br>
+<a name="9">[9]</a> Sublime Package Control <a href="http://wbond.net/sublime_packages/package_control"><a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a></a> <br>
+<a name="10">[10]</a> Skim <a href="http://skim-app.sourceforge.net/"><a href="http://skim-app.sourceforge.net/">http://skim-app.sourceforge.net/</a></a><br><br>
+<a href="#top">Back to Top</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Survey of Job Completion Time Prediction Methodologies]]></title>
+    <link href="http://www.teeboneding.com/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies/"/>
+    <updated>2012-11-16T22:14:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies</id>
+    <content type="html"><![CDATA[<h2> Introduction </h2>
+
+
+<p>Job completion time prediction is not a new story recently. How to schedule a job before it arrives it's deadline is always a hot topic in systems research. In order to allocate sufficient resources to meet a job's service-level objectives (SLOs) on latency, we need to predict job completion time accurately when given resource allocation information.</p>
+
+
+<p></p>
+
+<!-- more -->
+
+
+<p> I have surveyed several related works published last 5 years that focus on data parallel jobs scheduling with SLOs issues. There are different ways to construct performance models and predict job execution time. After understanding these methods, I would like to map these solutions on my research work. The last 2 section will describe open questions for discussions and lessons from a survey of job completion time prediction works. </p>
+
+
+
+
+<h2> Learning from history </h2>
+
+
+<h3> Simulation (Jockey) </h3>
+
+
+<p>Jockey [2] is a scheduler that provides latency SLOs for data parallel jobs written in SCOPE [5]. As Jockey is implemented on Microsoft Cosmos clusters, jobs are running in production mode which means these must be recurring jobs. Jockey can predict the new coming recurring production job completion time by history logs. The architecture is shown below: (Fig. 2 from [2])</p>
+
+
+<p><img src="http://www.teeboneding.com/images/1116/1116-1.png"></p>
+
+<p><img src="http://www.teeboneding.com/images/1116/1116-2.png"></p>
+
+<p>      The offline phase includes job profiler and simulator. What information can we learn from history? The jobs running on Cosmos have structures like Dryad [4] that have several processing stages have dependency or parallel part. (See Fig. 3 in [2].) One could visualize a job's structure (execution plan) in a partial order diagram from the compiler and optimizer of SCOPE. In history logs we can obtain per-stage runtime information, job initialization latencies, task failure probabilities, stage and task dependency list for each job, job completion times, and etc.</p>
+
+
+
+
+<p>      The next step is applying simulation from given history performance data and different resource allocations to compute job completion time distribution. From extracted performance statistics as the simulator inputs, the simulator simulates events in the execution of a job. The events include: 1.) allocating tasks to machines, 2.) restart failed tasks, and 3.) scheduling tasks. There are no considerations on such like input size variance and scheduling duplicated jobs.</p>
+
+
+
+
+<p>      For each SLO jobs, the authors estimate C(p,a), a random variable that given present job progress p and resource tokens a, denoting the remaining completion time. {"The simulator simulates a job's remaining completion time in different resource allocations, i.e., changing token a in C(p,a) to compute job remaining time given present progress. "} Jockey considers resource amount in one unit (a token representation.) After pre-computation we can estimate job completion time by the random variable. Another issue is how to indicate the real progress while executing a job. [2] implemented some progress indicators to solve this problem. For readers who are interested in progress indicator, please read [2] by yourself.</p>
+
+
+
+
+<h3> SVM regression model (AROMA) </h3>
+
+
+<p><img src="http://www.teeboneding.com/images/1116/1116-3.png"></p>
+
+<p>AROMA [1] provides a machine learning performance model to predict job completion time. The challenge in this paper is to allocate sufficient resources and minimize costs in the heterogeneous Cloud Hadoop environment. For the offline model training, the authors apply support vector machine (SVM) regression model to estimate the MapReduce job completion time. Table 2 in [1] describes feature selection for SORT job. The t-static and p-value are determined by a stepwise regression technique. The model features include Hadoop configurations, input data size, VM types, and number of VMs (which represent amount of resources.) The output of this machine learning model is job completion time estimation.</p>
+
+
+
+
+<p>      Before applying SVM regression, jobs are clustered into several clusters by k-medoid algorithm. The clustering features include CPU, network, and disk usage. The SVM regression models are constructed for each different cluster. For a new coming job, AROMA will simulate the job with a small VM and a fraction of its input data to capture the CPU, network, and disk usage and find a suitable SVM regression model to estimate the job completion time. With an assumption: jobs with similar bottlenecks and as a result they would be similar performance behavior,AROMA can predict ad-hoc job completion time by online simulation signature matching to a SVM model.</p>
+
+
+<p><img src="http://www.teeboneding.com/images/1116/1116-4.png"></p>
+
+<h3>Analytical functions (ARIA and Jockey's modified Amdahl's Law)</h3>
+
+
+<p>In ARIA [3] and Jockey [1] there are analytical ways to predict job completion time. ARIA [3] solves the same problem as AROMA [1] that predict MapReduce job completion time and allocate sufficient resources to meet SLOs on latency. The difference is that ARIA focus on production (recurring) jobs running on self hosted Hadoop clusters. The authors in [3] induce a function of assigned resources to predict job completion time. The architecture of ARIA is described in Fig. 6 in [3]. It is implemented as a Hadoop scheduler.</p>
+
+
+<p><img src="http://www.teeboneding.com/images/1116/1116-5.png"></p>
+
+<p>      ARIA can learn from job profile that extract information from the jab master logs. Information including map/reduce task durations, average input size per task, and the ratio of the map/reduce task output to input size. Based on the job profile and the performance bounds of completion time of different job phases, the authors design a MapReduce performance model. The detail of the mathematical induction is quite lengthy, I left this part for saving space. The completion time estimation equation looks like this:</p>
+
+
+<p><img src="http://www.teeboneding.com/images/1116/1116-6.png"></p>
+
+<p>      A,B, and C are constants can be obtained from a job's profile. N(J,M) and N(J,R) are Map/Reduce total tasks amount for job J which are also constants can be obtained before execution. T stands for execution time that is what we want to get. S(J,M) and S(J,R) are two variables for this function which are Map and Reduce slots (resources) that the system can provide for job J. We then could simplify equation 10 to 11 and solve it by Lagrange's multipliers to get the smallest map/reduce slots for one job to finish before its deadline.</p>
+
+
+
+
+<p>      Jockey [1] also have an alternative way to predict Cosmos production job completion time. The idea is borrowed from Amdahl's Law: T=S+P/N. <br>
+T: completion time <br>
+S: serial part of a program (critical path) <br>
+P: parallel part of a program <br>
+N: number of processors <br>
+</p>
+
+
+
+
+<p>      Now we could transfer "N" to "a" for number of resource tokens to predict job completion time. The accuracy shows in [1] that the simulation method gets better than the modified Amdahl's Law due to the consideration of outliers and failures in history logs that provides a more conservative resource allocation first.</p>
+
+
+
+
+<h2>Facing my problems</h2>
+
+
+<p>In my college department (CSIE in NTU), we have around 20 Linux workstations provided for students and faculties use. We found the perfomance and load per machines quite imbalance. We would like to provide a dispatcher/scheduler to determine a new coming job to be executed locally, move to another machine, or offload to the cloud in order to get better performance and load balance. The history log we have is dumped from the command: 
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ps aux
+</span></code></pre></td></tr></table></div></figure>
+
+per machine to capture system status every 5 minutes. For a new coming job, we could obtain its full command line arguments and present system load from commands like dstat or top. The question is: how do we predict a new coming job's behavior and its completion time with its command line arguments and current system load information? According to [1 2 3], which solution can be mapped into our scenario?</p>
+
+
+
+
+<h2>Discussions</h2>
+
+
+
+
+<p>[1 2 3] focus on data parallel jobs/frameworks. These jobs are batch jobs that running on production machines or cloud environments. Our workstations may execute user-interactive jobs like editors or script language prompts. {"The ultimate goal in our project is to offload jobs to the cloud while the cluster cannot execute programs in time."} For user-interactive jobs, these are not what we are focus on. The first thing before dispatching is to classify whether the new coming job is a computation intensive batch task or not. We are more intersted in computation intensive jobs which are few portion in the system but consume almost the whole capacity of one machine.</p>
+
+
+
+
+<h2>Conclusions</h2>
+
+
+<p>Job completion time preditction is always a hot topic in systems research. The survey from AROMA, ARIA, and Jockey shows different methodologies to construct prediction models and predict job completion time for different frameworks and environments. Methods include simulation, machine learning model, and analytical functions for different scenarios. After the survey, the next step is to derive a solution in our project: predict job behavior and completion time in Linux workstation. Cloud computing become another solution for load balance. How do we offload jobs and use cloud computation resources to meet SLOs? To offload or not to offload? That is a question.
+</p>
+
+
+
+
+<h2>References</h2>
+
+
+<p>
+[1] AROMA: Automated Resource Allocation and Configuration of MapReduce Environment in the Cloud <i>,ICAC 2012</i> <br>
+[2] Jockey: Guaranteed Job Latency in Data Parallel Clusters <i>,EuroSys 2012</i> <br>
+[3] ARIA: Automatic Resource Inference and Allocation for MapReduce <i>,ICAC 2011</i> <br>
+[4] Dryad: Distributed Data-Parallel Programs from Sequential Blocks <i>,EuroSys 2007</i> <br>
+[5] SCOPE: easy and efficient parallel processing of massive data sets  <i>,Proceedings of the VLDB Endowment 2008</i>
+</p>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Javascript | Teebone Ding Technical Blog]]></title>
+  <link href="http://www.teeboneding.com/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://www.teeboneding.com/"/>
+  <updated>2015-07-30T16:39:30+08:00</updated>
+  <id>http://www.teeboneding.com/</id>
+  <author>
+    <name><![CDATA[Teebone Ding]]></name>
+    <email><![CDATA[teebone@teeboneding.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fetch URL Query String With a jQuery Plugin]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin/"/>
+    <updated>2013-10-09T17:55:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/09/fetch-url-query-string-with-a-jquery-plugin</id>
+    <content type="html"><![CDATA[<h3>Useful plugin for fetching URL parameters</h3>
+
+<p>Download the plugin <a href="https://code.google.com/p/gantry/source/browse/trunk/root/js/jquery.url.min.js?r=1485">here</a>:</p>
+
+<p>Include jQuery and this plugin in your HTML page:
+``` html</p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="js/jquery.url.min.js"></script>
+
+
+<p>```</p>
+
+<!-- more -->
+
+
+<p>The source code of the jquery plugin is here:</p>
+
+<pre><code class="javascript">/*
+jQuery Url Plugin
+ * Version 1.0
+ * 2009-03-22 19:30:05
+ * URL: http://ajaxcssblog.com/jquery/url-read-get-variables/
+ * Description: jQuery Url Plugin gives the ability to read GET parameters from the actual URL
+ * Author: Matthias Jäggli
+ * Copyright: Copyright (c) 2009 Matthias Jäggli under dual MIT/GPL license.
+*/
+(function ($) {
+ $.url = {};
+ $.extend($.url, {
+  _params: {},
+  init: function(){
+   var paramsRaw = "";
+   try{
+    paramsRaw = 
+     (document.location.href.split("?", 2)[1] || "").split("#")[0].split("&amp;") || [];
+    for(var i = 0; i&lt; paramsRaw.length; i++){
+     var single = paramsRaw[i].split("=");
+     if(single[0])
+      this._params[single[0]] = unescape(single[1]);
+    }
+   }
+   catch(e){
+    alert(e);
+   }
+  },
+  param: function(name){
+   return this._params[name] || "";
+  },
+  paramAll: function(){
+   return this._params;
+  }
+ });
+ $.url.init();
+})(jQuery);
+</code></pre>
+
+<h3>Using the plugin:</h3>
+
+<p><strong>$.url.param(&ldquo;PARAMETER_NAME&rdquo;)</strong></p>
+
+<p>For instance, if you would like to fetch a parameter called &ldquo;man&rdquo; and the current page URL is <code>http://example.com?man=dude</code>, just call <code>$.url.param("man")</code> and it will return a string &ldquo;dude&rdquo; for you.</p>
+
+<p>If the parameter name you denoted does not exist, it will return nothing (empty string).</p>
+
+<p><strong>$.url.paramAll()</strong></p>
+
+<p>To fetch all parameters from current URL, call <code>$.url.paramAll()</code> and it will return an array of all parameters.</p>
+
+<h3>Reference:</h3>
+
+<p><a href="http://paladinprogram.blogspot.tw/2009/11/jquery-url.html">http://paladinprogram.blogspot.tw/2009/11/jquery-url.html</a></p>
+
+<p><a href="https://code.google.com/p/gantry/source/browse/trunk/root/js/jquery.url.min.js?r=1485">https://code.google.com/p/gantry/source/browse/trunk/root/js/jquery.url.min.js?r=1485</a></p>
+]]></content>
+  </entry>
+  
+</feed>

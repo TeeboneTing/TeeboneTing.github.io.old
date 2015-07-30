@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Chinese Translation Project | Teebone Ding Technical Blog]]></title>
+  <link href="http://www.teeboneding.com/blog/categories/chinese-translation-project/atom.xml" rel="self"/>
+  <link href="http://www.teeboneding.com/"/>
+  <updated>2015-07-30T16:39:30+08:00</updated>
+  <id>http://www.teeboneding.com/</id>
+  <author>
+    <name><![CDATA[Teebone Ding]]></name>
+    <email><![CDATA[teebone@teeboneding.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[中文補完計劃]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project/"/>
+    <updated>2013-10-11T12:14:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project</id>
+    <content type="html"><![CDATA[<h2>Chinese Translation Project</h2>
+
+<p><a href="http://www.teeboneding.com/blog/2013/10/11/chinese-translation-project/#Eng">English version</a></p>
+
+<p>這個部落格紀錄我在學習程式上的心得或筆記，為了讓可以看的懂的人不分國家，大部分都以英文撰寫為主。
+我是一個以中文為母語的人，對於寫作的掌握自然比英文強很多，為了讓廣大的中文使用者也能分享資訊，
+我開始考慮有時間的話每一篇文章都有中英兩種語言的版本。對於可以同時掌握兩種最多人使用的語言的我感到開心與興奮，
+也期許自己能成為一個有教導能力的人。</p>
+
+<p>希望不是淪為嘴炮，這一篇開始就來個雙語版文章好了&hellip;(倒)</p>
+
+<!-- more -->
+
+
+<p><a name="Eng"></a>
+This blog records my notes and useful information on my way learning coding. To make my blog worldwide accessable, I primary wrote in English. As a matter of fact, I am a Mandarin Chinese native speaker. I can read and write in Chinese fluently. To share my thoughts with Chinese readers, I would like to translate my posts into Chinese if I have spare time to do so. I am so glad and excited to understand the most popular two main languages in the world. I also try to be a teaching person and share my thoughts with others.</p>
+
+<p>I hope this is not just talking, let&rsquo;s translate this post in English now&hellip;(sigh).</p>
+]]></content>
+  </entry>
+  
+</feed>

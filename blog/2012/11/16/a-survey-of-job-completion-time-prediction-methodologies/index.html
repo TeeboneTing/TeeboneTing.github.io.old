@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A Survey of Job Completion Time Prediction Methodologies - Teebone Ding Technical Blog</title>
+  <meta name="author" content="Teebone Ding">
+
+  
+  <meta name="description" content="Introduction Job completion time prediction is not a new story recently. How to schedule a job before it arrives it's deadline is always a hot topic &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.teeboneding.com/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Teebone Ding Technical Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-41392110-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Teebone Ding Technical Blog</a></h1>
+  
+    <h2>Django, Python, Javascript, Pig, and Hadoop.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="www.teeboneding.com">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A Survey of Job Completion Time Prediction Methodologies</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2012-11-16T22:14:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2012</span></span> <span class='time'>10:14 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2> Introduction </h2>
+
+
+<p>Job completion time prediction is not a new story recently. How to schedule a job before it arrives it's deadline is always a hot topic in systems research. In order to allocate sufficient resources to meet a job's service-level objectives (SLOs) on latency, we need to predict job completion time accurately when given resource allocation information.</p>
+
+
+<p></p>
+
+<!-- more -->
+
+
+<p> I have surveyed several related works published last 5 years that focus on data parallel jobs scheduling with SLOs issues. There are different ways to construct performance models and predict job execution time. After understanding these methods, I would like to map these solutions on my research work. The last 2 section will describe open questions for discussions and lessons from a survey of job completion time prediction works. </p>
+
+
+
+
+<h2> Learning from history </h2>
+
+
+<h3> Simulation (Jockey) </h3>
+
+
+<p>Jockey [2] is a scheduler that provides latency SLOs for data parallel jobs written in SCOPE [5]. As Jockey is implemented on Microsoft Cosmos clusters, jobs are running in production mode which means these must be recurring jobs. Jockey can predict the new coming recurring production job completion time by history logs. The architecture is shown below: (Fig. 2 from [2])</p>
+
+
+<p><img src="/images/1116/1116-1.png"></p>
+
+<p><img src="/images/1116/1116-2.png"></p>
+
+<p>      The offline phase includes job profiler and simulator. What information can we learn from history? The jobs running on Cosmos have structures like Dryad [4] that have several processing stages have dependency or parallel part. (See Fig. 3 in [2].) One could visualize a job's structure (execution plan) in a partial order diagram from the compiler and optimizer of SCOPE. In history logs we can obtain per-stage runtime information, job initialization latencies, task failure probabilities, stage and task dependency list for each job, job completion times, and etc.</p>
+
+
+
+
+<p>      The next step is applying simulation from given history performance data and different resource allocations to compute job completion time distribution. From extracted performance statistics as the simulator inputs, the simulator simulates events in the execution of a job. The events include: 1.) allocating tasks to machines, 2.) restart failed tasks, and 3.) scheduling tasks. There are no considerations on such like input size variance and scheduling duplicated jobs.</p>
+
+
+
+
+<p>      For each SLO jobs, the authors estimate C(p,a), a random variable that given present job progress p and resource tokens a, denoting the remaining completion time. {"The simulator simulates a job's remaining completion time in different resource allocations, i.e., changing token a in C(p,a) to compute job remaining time given present progress. "} Jockey considers resource amount in one unit (a token representation.) After pre-computation we can estimate job completion time by the random variable. Another issue is how to indicate the real progress while executing a job. [2] implemented some progress indicators to solve this problem. For readers who are interested in progress indicator, please read [2] by yourself.</p>
+
+
+
+
+<h3> SVM regression model (AROMA) </h3>
+
+
+<p><img src="/images/1116/1116-3.png"></p>
+
+<p>AROMA [1] provides a machine learning performance model to predict job completion time. The challenge in this paper is to allocate sufficient resources and minimize costs in the heterogeneous Cloud Hadoop environment. For the offline model training, the authors apply support vector machine (SVM) regression model to estimate the MapReduce job completion time. Table 2 in [1] describes feature selection for SORT job. The t-static and p-value are determined by a stepwise regression technique. The model features include Hadoop configurations, input data size, VM types, and number of VMs (which represent amount of resources.) The output of this machine learning model is job completion time estimation.</p>
+
+
+
+
+<p>      Before applying SVM regression, jobs are clustered into several clusters by k-medoid algorithm. The clustering features include CPU, network, and disk usage. The SVM regression models are constructed for each different cluster. For a new coming job, AROMA will simulate the job with a small VM and a fraction of its input data to capture the CPU, network, and disk usage and find a suitable SVM regression model to estimate the job completion time. With an assumption: jobs with similar bottlenecks and as a result they would be similar performance behavior,AROMA can predict ad-hoc job completion time by online simulation signature matching to a SVM model.</p>
+
+
+<p><img src="/images/1116/1116-4.png"></p>
+
+<h3>Analytical functions (ARIA and Jockey's modified Amdahl's Law)</h3>
+
+
+<p>In ARIA [3] and Jockey [1] there are analytical ways to predict job completion time. ARIA [3] solves the same problem as AROMA [1] that predict MapReduce job completion time and allocate sufficient resources to meet SLOs on latency. The difference is that ARIA focus on production (recurring) jobs running on self hosted Hadoop clusters. The authors in [3] induce a function of assigned resources to predict job completion time. The architecture of ARIA is described in Fig. 6 in [3]. It is implemented as a Hadoop scheduler.</p>
+
+
+<p><img src="/images/1116/1116-5.png"></p>
+
+<p>      ARIA can learn from job profile that extract information from the jab master logs. Information including map/reduce task durations, average input size per task, and the ratio of the map/reduce task output to input size. Based on the job profile and the performance bounds of completion time of different job phases, the authors design a MapReduce performance model. The detail of the mathematical induction is quite lengthy, I left this part for saving space. The completion time estimation equation looks like this:</p>
+
+
+<p><img src="/images/1116/1116-6.png"></p>
+
+<p>      A,B, and C are constants can be obtained from a job's profile. N(J,M) and N(J,R) are Map/Reduce total tasks amount for job J which are also constants can be obtained before execution. T stands for execution time that is what we want to get. S(J,M) and S(J,R) are two variables for this function which are Map and Reduce slots (resources) that the system can provide for job J. We then could simplify equation 10 to 11 and solve it by Lagrange's multipliers to get the smallest map/reduce slots for one job to finish before its deadline.</p>
+
+
+
+
+<p>      Jockey [1] also have an alternative way to predict Cosmos production job completion time. The idea is borrowed from Amdahl's Law: T=S+P/N. <br>
+T: completion time <br>
+S: serial part of a program (critical path) <br>
+P: parallel part of a program <br>
+N: number of processors <br>
+</p>
+
+
+
+
+<p>      Now we could transfer "N" to "a" for number of resource tokens to predict job completion time. The accuracy shows in [1] that the simulation method gets better than the modified Amdahl's Law due to the consideration of outliers and failures in history logs that provides a more conservative resource allocation first.</p>
+
+
+
+
+<h2>Facing my problems</h2>
+
+
+<p>In my college department (CSIE in NTU), we have around 20 Linux workstations provided for students and faculties use. We found the perfomance and load per machines quite imbalance. We would like to provide a dispatcher/scheduler to determine a new coming job to be executed locally, move to another machine, or offload to the cloud in order to get better performance and load balance. The history log we have is dumped from the command: 
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ps aux
+</span></code></pre></td></tr></table></div></figure>
+
+per machine to capture system status every 5 minutes. For a new coming job, we could obtain its full command line arguments and present system load from commands like dstat or top. The question is: how do we predict a new coming job's behavior and its completion time with its command line arguments and current system load information? According to [1 2 3], which solution can be mapped into our scenario?</p>
+
+
+
+
+<h2>Discussions</h2>
+
+
+
+
+<p>[1 2 3] focus on data parallel jobs/frameworks. These jobs are batch jobs that running on production machines or cloud environments. Our workstations may execute user-interactive jobs like editors or script language prompts. {"The ultimate goal in our project is to offload jobs to the cloud while the cluster cannot execute programs in time."} For user-interactive jobs, these are not what we are focus on. The first thing before dispatching is to classify whether the new coming job is a computation intensive batch task or not. We are more intersted in computation intensive jobs which are few portion in the system but consume almost the whole capacity of one machine.</p>
+
+
+
+
+<h2>Conclusions</h2>
+
+
+<p>Job completion time preditction is always a hot topic in systems research. The survey from AROMA, ARIA, and Jockey shows different methodologies to construct prediction models and predict job completion time for different frameworks and environments. Methods include simulation, machine learning model, and analytical functions for different scenarios. After the survey, the next step is to derive a solution in our project: predict job behavior and completion time in Linux workstation. Cloud computing become another solution for load balance. How do we offload jobs and use cloud computation resources to meet SLOs? To offload or not to offload? That is a question.
+</p>
+
+
+
+
+<h2>References</h2>
+
+
+<p>
+[1] AROMA: Automated Resource Allocation and Configuration of MapReduce Environment in the Cloud <i>,ICAC 2012</i> <br>
+[2] Jockey: Guaranteed Job Latency in Data Parallel Clusters <i>,EuroSys 2012</i> <br>
+[3] ARIA: Automatic Resource Inference and Allocation for MapReduce <i>,ICAC 2011</i> <br>
+[4] Dryad: Distributed Data-Parallel Programs from Sequential Blocks <i>,EuroSys 2007</i> <br>
+[5] SCOPE: easy and efficient parallel processing of massive data sets  <i>,Proceedings of the VLDB Endowment 2008</i>
+</p>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Teebone Ding</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2012-11-16T22:14:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2012</span></span> <span class='time'>10:14 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/run-time-prediction/'>run time prediction</a>, <a class='category' href='/blog/categories/system/'>system</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.teeboneding.com/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies/" data-via="" data-counturl="http://www.teeboneding.com/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/06/01/write-your-ntu-master-thesis-with-a-xelatex-template-on-mac/" title="Next Post: 在Mac系統上撰寫台大碩士論文(XeLaTex樣板) Write your NTU master thesis with a XeLaTex template on Mac">在Mac系統上撰寫台大碩士論文(XeLaTex樣板) Write your NTU master thesis with a XeLaTex template on Mac &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>關於 Teebone</h1>
+  <p>A little something about me.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/07/30/ipython-command-notes/">IPython 指令筆記 Written in IPython Notebook</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/">Generate a YouTube-Video-ID-like Hash Function in Python</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/">Ordering in Selecting Objects in Django Model</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/11/chinese-translation-project/">中文補完計劃</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/09/selecting-objects-in-django-model/">Selecting Objects in Django Model</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/TeeboneTing">@TeeboneTing</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'TeeboneTing',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Teebone Ding -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'teeboneding';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.teeboneding.com/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies/';
+        var disqus_url = 'http://www.teeboneding.com/blog/2012/11/16/a-survey-of-job-completion-time-prediction-methodologies/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

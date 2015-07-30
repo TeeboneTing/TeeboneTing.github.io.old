@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>IPython 指令筆記 Written in IPython Notebook - Teebone Ding Technical Blog</title>
+  <meta name="author" content="Teebone Ding">
+
+  
+  <meta name="description" content="tab 可以幫你自動完成函數/變數 ex: os.[tab] %pdoc [MODULE NAME] or [MODULE NAME]? 幫你找出模組的文件 ex: %pdoc os or os? %pdoc os 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Teebone Ding Technical Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-41392110-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Teebone Ding Technical Blog</a></h1>
+  
+    <h2>Django, Python, Javascript, Pig, and Hadoop.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="www.teeboneding.com">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">IPython 指令筆記 Written in IPython Notebook</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-07-30T12:02:15+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:02 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3><code>tab</code> 可以幫你自動完成函數/變數</h3>
+
+<ul>
+<li>ex: <code>os.[tab]</code></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3><code>%pdoc [MODULE NAME]</code> or <code>[MODULE NAME]?</code> 幫你找出模組的文件</h3>
+
+<ul>
+<li><p>ex: <code>%pdoc os</code> or <code>os?</code></p>
+
+<p>  %pdoc os</p></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Class docstring:
+</span><span class='line'>    OS routines for NT or Posix depending on what system we're on.
+</span><span class='line'>    
+</span><span class='line'>    This exports:
+</span><span class='line'>      - all functions from posix, nt, os2, or ce, e.g. unlink, stat, etc.
+</span><span class='line'>      - os.path is one of the modules posixpath, or ntpath
+</span><span class='line'>      - os.name is 'posix', 'nt', 'os2', 'ce' or 'riscos'
+</span><span class='line'>      - os.curdir is a string representing the current directory ('.' or ':')
+</span><span class='line'>      - os.pardir is a string representing the parent directory ('..' or '::')
+</span><span class='line'>      - os.sep is the (or a most common) pathname separator ('/' or ':' or '\\')
+</span><span class='line'>      - os.extsep is the extension separator ('.' or '/')
+</span><span class='line'>      - os.altsep is the alternate pathname separator (None or '/')
+</span><span class='line'>      - os.pathsep is the component separator used in $PATH etc
+</span><span class='line'>      - os.linesep is the line separator in text files ('\r' or '\n' or '\r\n')
+</span><span class='line'>      - os.defpath is the default search path for executables
+</span><span class='line'>      - os.devnull is the file path of the null device ('/dev/null', etc.)
+</span><span class='line'>    
+</span><span class='line'>    Programs that import and use 'os' stand a better chance of being
+</span><span class='line'>    portable between different platforms.  Of course, they must then
+</span><span class='line'>    only use functions that are defined by all platforms (e.g., unlink
+</span><span class='line'>    and opendir), and leave all pathname manipulation to os.path
+</span><span class='line'>    (e.g., split and join).</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><code>%pfile [MODULE NAME]</code> or <code>[MODULE NAME]??</code> 告訴你函數如何實作</h3>
+
+<ul>
+<li>ex: <code>os.path.join??</code></li>
+</ul>
+
+
+<h3>Magic Commands: 神奇指令們</h3>
+
+<pre><code class="``">    %magic 查看所有的神奇指令。
+    %edit 編輯並執行檔案。
+    %edit -x filename 編輯但不執行檔案。
+    %edit 5:20 filename 編輯檔案第5行、第20個字元。
+    %pwd 顯示目前目錄。
+    %time statement 計算程式碼執行的時間。
+</code></pre>
+
+<h3>呼叫系統指令:</h3>
+
+<ul>
+<li><p>如果要在IPython呼叫系統指令，只需要在指令面前加入!就好，例如要執行ping指令。</p>
+
+<p>  !ping ptt.cc</p>
+
+<p>  Ping ptt.cc [140.112.172.4] (使用 32 位元組的資料):
+  回覆自 140.112.172.4: 位元組=32 時間=4ms TTL=52
+  回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
+  回覆自 140.112.172.4: 位元組=32 時間=3ms TTL=52
+  回覆自 140.112.172.4: 位元組=32 時間=8ms TTL=52</p>
+
+<p>  140.112.172.4 的 Ping 統計資料:
+      封包: 已傳送 = 4，已收到 = 4, 已遺失 = 0 (0% 遺失)，
+  大約的來回時間 (毫秒):
+      最小值 = 3ms，最大值 = 8ms，平均 = 4ms</p></li>
+</ul>
+
+
+<h3>reload([MODULE NAME]) 重新載入修改後的模組</h3>
+
+<h3>在IPython notebook 裡面畫圖</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import matplotlib
+</span><span class='line'>import numpy as np
+</span><span class='line'>import matplotlib.pyplot as plt
+</span><span class='line'>%matplotlib inline  </span></code></pre></td></tr></table></div></figure>
+
+
+<p>記得加入最後一行 <code>%matplotlib inline</code> 才會讓圖片show在notebook裡面</p>
+
+<pre><code>import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+plt.plot([1,5,2,4])
+
+
+
+
+[&lt;matplotlib.lines.Line2D at 0x55b0e90&gt;]
+</code></pre>
+
+<p><img src="/images/0730/output_11_1.png"></p>
+
+<h3>插入YouTube影片</h3>
+
+<pre><code>from IPython.lib.display import YouTubeVideo
+YouTubeVideo('PjJhg9-EXr8')
+
+
+
+
+
+    &lt;iframe
+        width="400"
+        height="300"
+        src="https://www.youtube.com/embed/PjJhg9-EXr8"
+        frameborder="0"
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+</code></pre>
+
+<h3>嵌入外部網站</h3>
+
+<pre><code>from IPython.core.display import HTML
+HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
+</code></pre>
+
+<p><iframe src="http://www.teeboneding.com" width=800 height=400></p>
+
+<h3>執行python程式檔</h3>
+
+<ul>
+<li>ex: <code>%run test.py</code></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Teebone Ding</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-07-30T12:02:15+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:02 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/python/'>python</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes/" data-via="" data-counturl="http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/" title="Previous Post: Generate a YouTube-Video-ID-like hash function in python">&laquo; Generate a YouTube-Video-ID-like hash function in python</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>關於 Teebone</h1>
+  <p>A little something about me.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/07/30/ipython-command-notes/">IPython 指令筆記 Written in IPython Notebook</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/16/generate-a-youtube-video-id-like-hash-function-in-python/">Generate a YouTube-Video-ID-like Hash Function in Python</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/">Ordering in Selecting Objects in Django Model</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/11/chinese-translation-project/">中文補完計劃</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/09/selecting-objects-in-django-model/">Selecting Objects in Django Model</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/TeeboneTing">@TeeboneTing</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'TeeboneTing',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Teebone Ding -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'teeboneding';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes/';
+        var disqus_url = 'http://www.teeboneding.com/blog/2015/07/30/ipython-command-notes/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Django | Teebone Ding Technical Blog]]></title>
+  <link href="http://www.teeboneding.com/blog/categories/django/atom.xml" rel="self"/>
+  <link href="http://www.teeboneding.com/"/>
+  <updated>2015-07-30T16:39:30+08:00</updated>
+  <id>http://www.teeboneding.com/</id>
+  <author>
+    <name><![CDATA[Teebone Ding]]></name>
+    <email><![CDATA[teebone@teeboneding.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ordering in Selecting Objects in Django Model]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model/"/>
+    <updated>2013-10-11T14:36:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/11/ordering-in-selecting-objects-in-django-model</id>
+    <content type="html"><![CDATA[<h3>Data ordering</h3>
+
+<p>While retreiving data from Django Model, we might want data that retreived in some ordering. (alphabet, created time, and etc.) Simply use <code>Model.objects.order_by()</code> function.</p>
+
+<!-- more -->
+
+
+<p>The Model class example is the same as <a href="http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model/">selecting objects in django model</a>.</p>
+
+<pre><code class="python model.py">class Request(models.Model):
+    sender = models.CharField(max_length=200)
+    sender_place = models.CharField(max_length=200)
+    receiver = models.CharField(max_length=200)
+    receiver_place = models.CharField(max_length=200)
+    message = models.TextField()  # message leaved by sender
+    vid_id = models.CharField(max_length=200)  # Video URL from YouTube, Vimeo, ... film share web sites
+    share_hash = models.CharField(max_length=200) # Share hash code that the reciever can click to watch
+    create_time = models.DateTimeField(auto_now_add=True)      # share link create time
+</code></pre>
+
+<p>For example, order by &ldquo;sender&rdquo;:</p>
+
+<pre><code class="python">Request.objects.order_by("sender")
+</code></pre>
+
+<p>This will return a list of objects that order by the alphabet of sender&rsquo;s name. If you would like to select data by reverse ordering, add minus sigh (-) before the Field name:</p>
+
+<pre><code class="python">Request.objects.order_by("-created_time")
+</code></pre>
+
+<p>This will return a list with the latest created object in the first place. You can also order by multiple Fields by adding a second ordering like this:</p>
+
+<pre><code class="python">Request.objects.order_by("sender", "-created_time")
+</code></pre>
+
+<p>And this will return a list that order by sender&rsquo;s name first. If there exist a sender&rsquo;s name with more than one object, they will be ordered by reverse created time then.</p>
+
+<h3>Default ordering</h3>
+
+<p>Always retreive data in the same ordering by calling <code>Model.objects.order_by()</code> could be redundant. We can denote a default ordering in Model class and the retreived data will order by the default ordering. Add <code>class Meta</code> in the original Model:</p>
+
+<pre><code class="python model.py">class Request(models.Model):
+    sender = models.CharField(max_length=200)
+    sender_place = models.CharField(max_length=200)
+    receiver = models.CharField(max_length=200)
+    receiver_place = models.CharField(max_length=200)
+    message = models.TextField()  # message leaved by sender
+    vid_id = models.CharField(max_length=200)  # Video URL from YouTube, Vimeo, ... film share web sites
+    share_hash = models.CharField(max_length=200) # Share hash code that the reciever can click to watch
+    create_time = models.DateTimeField(auto_now_add=True)      # share link create time
+
+    # Default ordering: reverse create_time
+    class Meta:
+        ordering = ['-create_time']
+</code></pre>
+
+<p>The <code>class Meta</code> is embedded in <code>class Request</code>. now we can retrieve data with <code>Request.objects.all()</code> that is ordered by reverse created time. This can save calling <code>order_by("-created_time")</code> every time.</p>
+
+<h3>References</h3>
+
+<p><a href="http://django-book.readthedocs.org/en/latest/chapter05.html#ordering-data">Django book Chapter 5 (Model) Ordering Data</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Selecting Objects in Django Model]]></title>
+    <link href="http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model/"/>
+    <updated>2013-10-09T22:23:00+08:00</updated>
+    <id>http://www.teeboneding.com/blog/2013/10/09/selecting-objects-in-django-model</id>
+    <content type="html"><![CDATA[<p>When we talk about database, the dumb way to select objects in Django is using raw SQL scripts. We don&rsquo;t use SQL directly in Django due to security issues and cross-platform achievement. Using Django database API can avoid most SQL secure holes and you don&rsquo;t have to learn much about database selecting languages which might be slightly different between several Django supported databases. I am going to talk about a little (my notes) in selecting objects in Django model.</p>
+
+<h3>Filtering Objects</h3>
+
+<!-- more -->
+
+
+<p>Here is an example <code>model.py.</code> I created a class &ldquo;Request&rdquo; that is a model stores information about a man sends a message with a youtube video link.</p>
+
+<pre><code class="python model.py">class Request(models.Model):
+    sender = models.CharField(max_length=200)
+    sender_place = models.CharField(max_length=200)
+    receiver = models.CharField(max_length=200)
+    receiver_place = models.CharField(max_length=200)
+    message = models.TextField()  # message leaved by sender
+    vid_id = models.CharField(max_length=200)  # Video URL from YouTube, Vimeo, ... film share web sites
+    share_hash = models.CharField(max_length=200) # Share hash code that the reciever can click to watch
+    create_time = models.DateTimeField(auto_now_add=True)      # share link create time
+</code></pre>
+
+<p>If you would like to select objects with the <code>sender</code> field equals to &ldquo;Alan&rdquo;, use <code>Model.objects.filter()</code> like this:</p>
+
+<pre><code class="python">Request.objects.filter(sender="Alan")
+</code></pre>
+
+<p>This code filters all objects with field <code>sender</code> equals to &ldquo;Alan&rdquo;. The similar SQL is the <code>WHERE</code> clause.</p>
+
+<pre><code class="sql">SELECT * FROM Request WHERE sender = 'Alan';
+</code></pre>
+
+<p>You can filter ojbects with multiple fields in <code>Model.objects.filter()</code>. Just use comma (,) to seperate them. If you would like to filter objects with <code>sender</code> field that &ldquo;contains&rdquo; a term, plus <code>__contains</code> suffix in <code>Model.objects.filter()</code>:</p>
+
+<pre><code class="python">Request.objects.filter(sender__contains="John")
+</code></pre>
+
+<p>Senders like &ldquo;John&rdquo;, &ldquo;Johnson&rdquo; will be selected. The corresponding SQL is the <code>LIKE</code> statement. For example:</p>
+
+<pre><code class="sql">SELECT * FROM Request WHERE sender LIKE '%John%';
+</code></pre>
+
+<p>All lookup suffixes are put in <a href="http://django-book.readthedocs.org/en/latest/appendixB.html#field-lookups">django book appendix B</a>.</p>
+
+<h3>Get an object</h3>
+
+<p>In Django one can also retreive one object by <code>Model.objects.get()</code>. This will return only one object from the Model. <code>Model.objects.filter()</code> returns a list for you. If there are more than one object or no objects return from <code>Model.objects.get()</code>, an error will be returned. The usage of <code>Model.objects.get()</code> is similar to <code>Model.objects.filter()</code>. For instance, get the object with <code>receiver</code> equals to &ldquo;Annie&rdquo;:</p>
+
+<pre><code class="python">Request.objects.get(receiver="Annie")
+</code></pre>
+
+<p>That&rsquo;s all for this post! The references are put below.</p>
+
+<h3>References</h3>
+
+<p><a href="http://django-book.readthedocs.org/en/latest/chapter05.html#selecting-objects">Django book Chapter 5 (Model) Selecting Objects</a></p>
+
+<p><a href="http://django-book.readthedocs.org/en/latest/appendixB.html#field-lookups">Django book Appendix B (Database API) Field Lookups</a></p>
+]]></content>
+  </entry>
+  
+</feed>
