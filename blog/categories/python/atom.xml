@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Teebone Ding Technical Blog]]></title>
   <link href="http://teeboneting.github.io/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://teeboneting.github.io/"/>
-  <updated>2015-07-30T17:14:21+08:00</updated>
+  <updated>2015-07-30T17:24:52+08:00</updated>
   <id>http://teeboneting.github.io/</id>
   <author>
     <name><![CDATA[Teebone Ding]]></name>
@@ -130,22 +130,11 @@ import matplotlib.pyplot as plt
     YouTubeVideo('PjJhg9-EXr8')
 </code></pre>
 
-<pre><code>    &lt;iframe
-        width="400"
-        height="300"
-        src="https://www.youtube.com/embed/PjJhg9-EXr8"
-        frameborder="0"
-        allowfullscreen
-    &gt;&lt;/iframe&gt;
-</code></pre>
-
 <h3>嵌入外部網站</h3>
 
 <pre><code>    from IPython.core.display import HTML
     HTML('&lt;iframe src="http://www.teeboneding.com" width=800 height=400&gt;')
 </code></pre>
-
-<p><iframe src="http://www.teeboneding.com" width=800 height=400></p>
 
 <h3>執行python程式檔</h3>
 
